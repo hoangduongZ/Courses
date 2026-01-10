@@ -1,0 +1,141 @@
+==========================================
+BÀI TẬP TỰ LUYỆN - EXTRA PRACTICE
+==========================================
+
+=== BÀI TẬP 1: TÌM SỐ ĐIỆN THOẠI VIỆT NAM ===
+
+CUSTOMER HOTLINES:
+- Hỗ trợ kỹ thuật: 0901234567
+- Bán hàng: 0912-345-678
+- Chăm sóc khách hàng: 0923 456 789
+- Tổng đài: 1900-1234
+- Khiếu nại: 0934567890
+- Email only: support@company.com (no phone)
+
+EMPLOYEE CONTACTS:
+1. Nguyễn Văn A - 0987654321 - Manager
+2. Trần Thị B - 0976-543-210 - Developer
+3. Lê Văn C - 0965 432 109 - Designer
+4. Phạm Thị D - 0954321098 - Marketing
+5. Hoàng Văn E - 0943-210-987 - Sales
+
+DELIVERY TRACKING:
+Order #12345: Driver contact 0932109876
+Order #12346: Driver contact 0921-098-765
+Order #12347: Driver contact 0910 987 654
+Order #12348: Pending assignment
+
+INVALID NUMBERS (SHOULD NOT MATCH):
+- Too short: 090123456
+- Too long: 09012345678
+- No leading zero: 901234567
+- Invalid format: 0901-2345-67890
+- Foreign: +84901234567 (international format)
+- US format: (555) 123-4567
+
+==========================================
+
+=== BÀI TẬP 2: EXTRACT URL TỪ TEXT ===
+
+EXTERNAL RESOURCES:
+- Official documentation: https://docs.example.com
+- API reference: https://api.example.com/v2/docs
+- Support portal: http://support.company.vn
+- Blog: https://blog.tech-startup.io/articles
+- GitHub repo: https://github.com/company/project
+- Download: https://cdn.example.com/files/installer.exe
+
+COMPETITOR ANALYSIS:
+Check out these competitors:
+1. https://competitor-a.com - market leader
+2. http://competitor-b.vn - local player
+3. https://startup-c.io - new entrant
+4. https://enterprise-d.co.uk - international
+
+MARKETING LINKS:
+Landing page: https://promo.company.com/blackfriday
+Campaign tracker: https://analytics.example.com?utm_source=email&utm_campaign=2026q1
+Social media: https://facebook.com/company-page
+LinkedIn: https://linkedin.com/company/example-corp
+
+BROKEN/INVALID URLs (SHOULD NOT MATCH):
+- Missing protocol: www.example.com
+- Incomplete: https://
+- Malformed: http:/example.com
+- With spaces: https://bad example.com
+- Just text: example.com
+
+DEV ENVIRONMENTS:
+- Local: http://localhost:3000
+- Staging: https://staging.company.com
+- Production: https://www.company.com
+- API: https://api.company.com/v1
+
+==========================================
+
+=== BÀI TẬP 3: TÌM MÃ ĐƠN HÀNG ===
+
+ORDER PROCESSING QUEUE:
+[PENDING] ORD-2026-000123 - Amount: $299.99 - Customer: John
+[SHIPPED] ORD-2026-000124 - Amount: $149.50 - Customer: Jane
+[DELIVERED] ORD-2025-999999 - Amount: $599.00 - Customer: Mike
+[CANCELLED] ORD-2026-000001 - Amount: $79.99 - Customer: Sarah
+
+INVOICE RECORDS:
+Invoice INV-2026-000456 - Order ORD-2026-000123 - Paid
+Invoice INV-2026-000457 - Order ORD-2026-000124 - Pending
+Invoice INV-2025-888888 - Order ORD-2025-999998 - Paid
+
+RETURN REQUESTS:
+RET-2026-001234 - Original order: ORD-2026-000100
+RET-2026-001235 - Original order: ORD-2026-000101
+RET-2025-999990 - Original order: ORD-2025-999900
+
+SHIPMENT TRACKING:
+Tracking SHP-2026-555555 for ORD-2026-000124
+Tracking SHP-2026-555556 for ORD-2026-000125
+Tracking SHP-2026-555557 for ORD-2026-000126
+
+PAYMENT CONFIRMATIONS:
+Payment PAY-2026-777777 processed for INV-2026-000456
+Payment PAY-2026-777778 processed for INV-2026-000457
+Payment PAY-2026-777779 pending for INV-2026-000458
+
+REFUND PROCESSING:
+Refund REF-2026-888888 issued for RET-2026-001234
+Refund REF-2026-888889 issued for RET-2026-001235
+Refund REF-2026-888890 pending approval
+
+INVALID CODES (SHOULD NOT MATCH):
+- Wrong format: ORDER-2026-123
+- Missing year: ORD-000123
+- Too short: ORD-2026-123
+- Too long: ORD-2026-0001234
+- No prefix: 2026-000123
+
+==========================================
+
+HINTS FOR SOLUTIONS:
+--------------------
+
+1. PHONE NUMBER PATTERN:
+   - Bắt đầu bằng 0
+   - 10-11 chữ số
+   - Có thể có dấu - hoặc space làm separator
+   - Format: 0XXXXXXXXX hoặc 0XXX-XXX-XXX hoặc 0XXX XXX XXX
+
+2. URL PATTERN:
+   - Bắt đầu bằng http:// hoặc https://
+   - Domain có chữ, số, dấu chấm, gạch ngang
+   - Có thể có path, query string
+
+3. ORDER CODE PATTERN:
+   - 3 chữ cái viết hoa
+   - Dấu gạch ngang
+   - 4 chữ số (năm)
+   - Dấu gạch ngang
+   - 6 chữ số (số thứ tự)
+
+==========================================
+TRY IT YOURSELF FIRST BEFORE CHECKING ANSWERS!
+==========================================

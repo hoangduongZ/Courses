@@ -1,0 +1,41 @@
+2026-01-08 10:23:45 [INFO] User login successful - user_id: 12345
+2026-01-08 10:24:12 [ERROR] Database connection timeout - db: main
+2026-01-08 10:24:15 [FATAL] System out of memory - heap size exceeded
+2026-01-08 10:24:20 [WARN] Slow query detected - 3.2s
+2026-01-08 10:24:25 [ERROR] Failed to send email - SMTP error
+2026-01-08 10:24:30 [INFO] Cache cleared successfully
+2026-01-08 10:24:35 Exception in thread "main" java.lang.NullPointerException
+2026-01-08 10:24:40 [INFO] Request processed - 200 OK
+2026-01-08 10:24:45 [DEBUG] Loading configuration from config.yml
+2026-01-08 10:24:50 [ERROR] File not found - /tmp/upload/image.png
+2026-01-08 10:24:55 [INFO] User logout - session_id: abc-xyz-123
+2026-01-08 10:25:00 [ERROR] API rate limit exceeded - retry after 60s
+2026-01-08 10:25:05 [WARN] Memory usage: 85% - consider scaling
+2026-01-08 10:25:10 [INFO] Background job completed - duration: 2.3s
+2026-01-08 10:25:15 [FATAL] Database corruption detected - initiating recovery
+2026-01-08 10:25:20 [ERROR] Invalid token - authentication failed
+2026-01-08 10:25:25 [INFO] Starting scheduled backup
+2026-01-08 10:25:30 Exception occurred during payment processing
+2026-01-08 10:25:35 [WARN] Disk space low - 15% remaining
+2026-01-08 10:25:40 [ERROR] Network timeout - remote server unreachable
+2026-01-08 10:25:45 [INFO] Health check passed
+2026-01-08 10:25:50 [DEBUG] Query executed in 0.05s
+2026-01-08 10:25:55 [FATAL] Critical security breach detected
+2026-01-08 10:26:00 [ERROR] Permission denied - insufficient privileges
+2026-01-08 10:26:05 [INFO] Service started on port 8080
+2026-01-08 10:26:10 RuntimeException: Null pointer access in UserService.java:142
+2026-01-08 10:26:15 [WARN] SSL certificate expires in 7 days
+2026-01-08 10:26:20 [ERROR] Redis connection failed - cache unavailable
+2026-01-08 10:26:25 [INFO] New user registered - user_id: 67890
+2026-01-08 10:26:30 [DEBUG] Parsing JSON response
+2026-01-08 10:26:35 IllegalArgumentException: Invalid date format
+2026-01-08 10:26:40 [ERROR] Database deadlock detected - transaction rolled back
+2026-01-08 10:26:45 [INFO] Webhook delivered successfully
+2026-01-08 10:26:50 [FATAL] Out of disk space - cannot write logs
+2026-01-08 10:26:55 [WARN] Request queue length: 1250
+2026-01-08 10:27:00 [ERROR] JSON parse error - malformed input
+2026-01-08 10:27:05 [INFO] User password changed - user_id: 11111
+2026-01-08 10:27:10 NullPointerException in payment gateway
+2026-01-08 10:27:15 [ERROR] Failed to connect to Elasticsearch
+2026-01-08 10:27:20 [INFO] Metrics exported to monitoring system
+2026-01-08 10:27:25 [DEBUG] Processing batch of 500 records

@@ -1,0 +1,66 @@
+==========================================
+CUSTOMER CONTACT LIST - Q1 2026
+==========================================
+
+1. TECH SUPPORT
+   Primary: support@company.com
+   Secondary: helpdesk@company.vn
+   Emergency hotline: 1900-xxxx or tech-support@company.com.vn
+
+2. SALES TEAM
+   Vietnam: sales.vn@startup.io
+   International: global_sales@tech-firm.co.uk
+   Manager: john.doe123@business-corp.com
+   Assistant: jane_assistant@help-center.org
+
+3. DEVELOPMENT
+   Lead developer: dev.lead@code-studio.dev
+   Backend team: backend_team@api-server.io
+   Frontend: ui-designer@creative.agency
+   DevOps: ops+automation@cloud-infra.net
+
+4. MARKETING & PR
+   Marketing director: marketing@brand-agency.com
+   PR contact: pr.team@media-house.vn
+   Social media: social_media_mgr@digital-marketing.asia
+   Content writer: content123@creative-content.co
+
+5. CUSTOMER FEEDBACK
+   Received from: customer_xyz@gmail.com on 05/01/2026
+   Follow-up email to: feedback_001@client-company.com
+   CC: support@company.com, manager@company.vn
+
+6. PARTNERSHIP INQUIRIES
+   Partner A: partnership@tech-giant.com (approved)
+   Partner B: collab@startup-hub.io (pending)
+   Partner C: business.dev@enterprise-solution.com (rejected)
+
+7. INVALID/INCOMPLETE ENTRIES (DO NOT USE)
+   - @missing-username.com
+   - no-at-sign-here.com  
+   - spaces are @not-allowed.com
+   - double@@at-sign.com
+   - ending-with-dot@company.
+   - .starting-with-dot@bad.com
+
+8. ADMIN & SYSTEM
+   System admin: admin@internal-system.local
+   Database admin: dba_master@db-cluster.internal
+   Security team: security+alerts@infosec-team.com
+   Monitoring: alerts_monitoring@ops-dashboard.io
+
+9. EXTERNAL VENDORS
+   Hosting provider: support@cloud-hosting.vn
+   Payment gateway: integration@payment-provider.com
+   Analytics service: api_key@analytics-platform.io
+   Email service: smtp_relay@email-delivery.net
+
+10. ARCHIVED CONTACTS (OLD)
+    Former employee: ex_employee@company.com (deactivated)
+    Old support: legacy_support@old-domain.vn (migrated)
+    Previous vendor: old.vendor@discontinued-service.com
+
+==========================================
+Total valid emails: ~30+
+Practice: Extract all valid emails!
+==========================================

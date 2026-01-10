@@ -1,0 +1,76 @@
+==========================================
+PROJECT TIMELINE & DEADLINES
+==========================================
+
+PROJECT: E-COMMERCE PLATFORM REDESIGN
+--------------------------------------
+Kickoff meeting: 08/01/2026
+Requirements phase: 15/01/2026 - 29/01/2026
+Design mockups due: 05/02/2026
+Development sprint 1: 10/02/2026 to 24/02/2026
+Development sprint 2: 25/02/2026 to 10/03/2026
+Testing phase start: 11/03/2026
+UAT completion: 25/03/2026
+Production deployment: 01/04/2026
+Post-launch review: 15/04/2026
+
+PROJECT: MOBILE APP v2.0
+--------------------------------------
+Planning: Started 01/12/2025, Ended 20/12/2025
+Development: 05/01/2026 - 31/03/2026
+Beta testing: Launch on 01/04/2026
+Public release: Target date 15/05/2026
+Marketing campaign: 01/05/2026 - 31/05/2026
+
+INVOICES & PAYMENTS
+--------------------------------------
+Invoice #001: Date 25/08/2023 - Payment due 25/09/2023 - Status: PAID
+Invoice #002: Date 15/11/2024 - Payment due 15/12/2024 - Status: PAID
+Invoice #003: Date 10/01/2026 - Payment due 10/02/2026 - Status: PENDING
+Invoice #004: Date 20/01/2026 - Payment due 20/02/2026 - Status: PENDING
+
+CONTRACTS & AGREEMENTS
+--------------------------------------
+Vendor A: Contract signed 15/06/2024, valid until 15/06/2027
+Vendor B: Contract signed 01/09/2025, expires 31/08/2026
+Vendor C: Negotiation started 10/01/2026, target sign date 28/02/2026
+
+EMPLOYEE RECORDS
+--------------------------------------
+John Doe: Hired 12/03/2023, Probation ended 12/06/2023
+Jane Smith: Hired 01/09/2024, Annual review due 01/09/2026
+Mike Johnson: Hired 15/01/2025, Contract renewal 15/01/2027
+
+SYSTEM MAINTENANCE
+--------------------------------------
+Last database backup: 09/01/2026 03:00 AM
+Next scheduled backup: 10/01/2026 03:00 AM
+Server upgrade window: 15/01/2026 22:00 - 16/01/2026 06:00
+SSL certificate renewal: Current expires 28/02/2026, renew by 20/02/2026
+
+MARKETING CAMPAIGNS
+--------------------------------------
+Black Friday 2025: 24/11/2025 - 27/11/2025 (Revenue: $150K)
+Year-end sale: 20/12/2025 - 31/12/2025 (Revenue: $200K)
+New Year campaign: 01/01/2026 - 15/01/2026 (Revenue: $180K)
+Valentine's special: 01/02/2026 - 14/02/2026 (Target: $100K)
+
+COMPLIANCE & AUDITS
+--------------------------------------
+Annual financial audit: Completed 31/03/2025
+Next audit scheduled: 31/03/2026
+GDPR compliance review: Last done 15/06/2025, next 15/06/2026
+Security audit: Quarterly - Last: 01/01/2026, Next: 01/04/2026
+
+PRODUCT RELEASES
+--------------------------------------
+Version 1.0: Released 15/03/2024
+Version 1.5: Released 20/08/2024
+Version 2.0: Released 10/01/2026
+Version 2.1: Planned 01/03/2026
+Version 3.0: Planned 01/07/2026
+
+==========================================
+Task: Convert all dates from DD/MM/YYYY to YYYY-MM-DD
+Expected conversions: 50+ dates
+==========================================
