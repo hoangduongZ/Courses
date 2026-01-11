@@ -1,0 +1,93 @@
+# Phiên bản cú pháp của Docker Compose
+version: '3.8'
+
+# Định nghĩa các service (dịch vụ) cần chạy
+services:
+  # Tên service: postgres-db
+  postgres-db:
+    # Image PostgreSQL phiên bản 16 (latest stable)
+    # Alpine = phiên bản nhẹ, dung lượng nhỏ (~80MB)
+    image: postgres:16-alpine
+    
+    # Đặt tên container (dễ nhận biết khi dùng docker ps)
+    container_name: postgres-db
+    
+    # Mapping port: "port_máy_host:port_trong_container"
+    ports:
+      - "5432:5432"  # Port mặc định của PostgreSQL
+    
+    # Biến môi trường để config PostgreSQL
+    environment:
+      # Tên database sẽ tự động tạo khi khởi động lần đầu
+      - POSTGRES_DB=${POSTGRES_DB}
+      
+      # Username của superuser (admin)
+      - POSTGRES_USER=${POSTGRES_USER}
+      
+      # Password của superuser (lấy từ file .env)
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      
+      # Timezone của database
+      - TZ=Asia/Ho_Chi_Minh
+    
+    # Mount volumes để lưu trữ data
+    volumes:
+      # Named volume: lưu database files (data persistent khi restart)
+      - postgres-data:/var/lib/postgresql/data
+      
+      # Bind mount: các file .sql trong init-scripts/ sẽ tự động chạy khi khởi tạo
+      # Chạy theo thứ tự alphabet (01, 02, 03...)
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    
+    # Chính sách restart: tự động khởi động lại trừ khi bạn stop thủ công
+    restart: unless-stopped
+    
+    # Health check: kiểm tra xem database đã sẵn sàng chưa
+    healthcheck:
+      # Lệnh kiểm tra: pg_isready trả về 0 nếu database ready
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s      # Kiểm tra mỗi 10 giây
+      timeout: 5s        # Timeout sau 5 giây
+      retries: 5         # Thử lại tối đa 5 lần
+      start_period: 30s  # Chờ 30 giây đầu tiên trước khi bắt đầu check
+
+  # Service pgAdmin - GUI để quản lý PostgreSQL qua web
+  pgadmin:
+    # Image pgAdmin 4 (công cụ quản lý PostgreSQL)
+    image: dpage/pgadmin4:latest
+    
+    # Đặt tên container
+    container_name: pgadmin
+    
+    # Mapping port cho web interface
+    ports:
+      - "5050:80"  # Truy cập pgAdmin qua http://localhost:5050
+    
+    # Biến môi trường cho pgAdmin
+    environment:
+      # Email để login vào pgAdmin
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      
+      # Password để login vào pgAdmin
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    
+    # Mount volume để lưu cấu hình pgAdmin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    
+    # Chỉ khởi động pgAdmin sau khi postgres-db đã healthy
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+    
+    restart: unless-stopped
+
+# Định nghĩa volumes (nơi lưu trữ data)
+volumes:
+  # Named volume để lưu data của PostgreSQL
+  postgres-data:
+    driver: local  # Lưu trữ local trên máy host
+  
+  # Named volume để lưu cấu hình của pgAdmin
+  pgadmin-data:
+    driver: local

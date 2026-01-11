@@ -4,71 +4,72 @@ PROJECT TIMELINE & DEADLINES
 
 PROJECT: E-COMMERCE PLATFORM REDESIGN
 --------------------------------------
-Kickoff meeting: 08/01/2026
-Requirements phase: 15/01/2026 - 29/01/2026
-Design mockups due: 05/02/2026
-Development sprint 1: 10/02/2026 to 24/02/2026
-Development sprint 2: 25/02/2026 to 10/03/2026
-Testing phase start: 11/03/2026
-UAT completion: 25/03/2026
-Production deployment: 01/04/2026
-Post-launch review: 15/04/2026
+Kickoff meeting: 2026-01-08
+Requirements phase: 2026-01-15 - 2026-01-29
+Design mockups due: 2026-02-05
+Development sprint 1: 2026-02-10 to 2026-02-24
+Development sprint 2: 2026-02-25 to 2026-03-10
+Testing phase start: 2026-03-11
+UAT completion: 2026-03-25
+Production deployment: 2026-04-01
+Post-launch review: 2026-04-15
 
 PROJECT: MOBILE APP v2.0
+2025-12-01
 --------------------------------------
-Planning: Started 01/12/2025, Ended 20/12/2025
-Development: 05/01/2026 - 31/03/2026
-Beta testing: Launch on 01/04/2026
-Public release: Target date 15/05/2026
-Marketing campaign: 01/05/2026 - 31/05/2026
+Planning: Started 2025-12-01, Ended 2025-12-20
+Development: 2026-01-05 - 2026-03-31
+Beta testing: Launch on 2026-04-01
+Public release: Target date 2026-05-15
+Marketing campaign: 2026-05-01 - 2026-05-31
 
 INVOICES & PAYMENTS
 --------------------------------------
-Invoice #001: Date 25/08/2023 - Payment due 25/09/2023 - Status: PAID
-Invoice #002: Date 15/11/2024 - Payment due 15/12/2024 - Status: PAID
-Invoice #003: Date 10/01/2026 - Payment due 10/02/2026 - Status: PENDING
-Invoice #004: Date 20/01/2026 - Payment due 20/02/2026 - Status: PENDING
+Invoice #001: Date 2023-08-25 - Payment due 2023-09-25 - Status: PAID
+Invoice #002: Date 2024-11-15 - Payment due 2024-12-15 - Status: PAID
+Invoice #003: Date 2026-01-10 - Payment due 2026-02-10 - Status: PENDING
+Invoice #004: Date 2026-01-20 - Payment due 2026-02-20 - Status: PENDING
 
 CONTRACTS & AGREEMENTS
 --------------------------------------
-Vendor A: Contract signed 15/06/2024, valid until 15/06/2027
-Vendor B: Contract signed 01/09/2025, expires 31/08/2026
-Vendor C: Negotiation started 10/01/2026, target sign date 28/02/2026
+Vendor A: Contract signed 2024-06-15, valid until 2027-06-15
+Vendor B: Contract signed 2025-09-01, expires 2026-08-31
+Vendor C: Negotiation started 2026-01-10, target sign date 2026-02-28
 
 EMPLOYEE RECORDS
 --------------------------------------
-John Doe: Hired 12/03/2023, Probation ended 12/06/2023
-Jane Smith: Hired 01/09/2024, Annual review due 01/09/2026
-Mike Johnson: Hired 15/01/2025, Contract renewal 15/01/2027
+John Doe: Hired 2023-03-12, Probation ended 2023-06-12
+Jane Smith: Hired 2024-09-01, Annual review due 2026-09-01
+Mike Johnson: Hired 2025-01-15, Contract renewal 2027-01-15
 
 SYSTEM MAINTENANCE
 --------------------------------------
-Last database backup: 09/01/2026 03:00 AM
-Next scheduled backup: 10/01/2026 03:00 AM
-Server upgrade window: 15/01/2026 22:00 - 16/01/2026 06:00
-SSL certificate renewal: Current expires 28/02/2026, renew by 20/02/2026
+Last database backup: 2026-01-09 03:00 AM
+Next scheduled backup: 2026-01-10 03:00 AM
+Server upgrade window: 2026-01-15 22:00 - 2026-01-16 06:00
+SSL certificate renewal: Current expires 2026-02-28, renew by 2026-02-20
 
 MARKETING CAMPAIGNS
 --------------------------------------
-Black Friday 2025: 24/11/2025 - 27/11/2025 (Revenue: $150K)
-Year-end sale: 20/12/2025 - 31/12/2025 (Revenue: $200K)
-New Year campaign: 01/01/2026 - 15/01/2026 (Revenue: $180K)
-Valentine's special: 01/02/2026 - 14/02/2026 (Target: $100K)
+Black Friday 2025: 2025-11-24 - 2025-11-27 (Revenue: $150K)
+Year-end sale: 2025-12-20 - 2025-12-31 (Revenue: $200K)
+New Year campaign: 2026-01-01 - 2026-01-15 (Revenue: $180K)
+Valentine's special: 2026-02-01 - 2026-02-14 (Target: $100K)
 
 COMPLIANCE & AUDITS
 --------------------------------------
-Annual financial audit: Completed 31/03/2025
-Next audit scheduled: 31/03/2026
-GDPR compliance review: Last done 15/06/2025, next 15/06/2026
-Security audit: Quarterly - Last: 01/01/2026, Next: 01/04/2026
+Annual financial audit: Completed 2025-03-31
+Next audit scheduled: 2026-03-31
+GDPR compliance review: Last done 2025-06-15, next 2026-06-15
+Security audit: Quarterly - Last: 2026-01-01, Next: 2026-04-01
 
 PRODUCT RELEASES
 --------------------------------------
-Version 1.0: Released 15/03/2024
-Version 1.5: Released 20/08/2024
-Version 2.0: Released 10/01/2026
-Version 2.1: Planned 01/03/2026
-Version 3.0: Planned 01/07/2026
+Version 1.0: Released 2024-03-15
+Version 1.5: Released 2024-08-20
+Version 2.0: Released 2026-01-10
+Version 2.1: Planned 2026-03-01
+Version 3.0: Planned 2026-07-01
 
 ==========================================
 Task: Convert all dates from DD/MM/YYYY to YYYY-MM-DD
