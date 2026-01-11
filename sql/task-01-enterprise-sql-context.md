@@ -393,6 +393,427 @@ Bạn pass task này khi:
 
 ---
 
+## 📝 Đáp án chi tiết
+
+### 1. Tại sao không nên dùng `SELECT *` trong API endpoint?
+
+#### ❌ Vấn đề với `SELECT *`:
+
+```sql
+-- ❌ BAD: API endpoint
+SELECT * FROM users WHERE user_id = 12345;
+```
+
+#### **Lý do KHÔNG nên dùng**:
+
+**a) Lãng phí bandwidth (Tốn network)**
+```sql
+-- Bảng users có 20 cột, mỗi row ~2KB
+-- SELECT * → Trả về: id, username, email, password_hash, 
+--   created_at, updated_at, bio, avatar_url, phone, address,
+--   city, country, zip_code, preferences, settings, ...
+
+-- Client chỉ cần: username, email, avatar_url (200 bytes)
+-- → Lãng phí 1,800 bytes = 90% bandwidth!
+```
+
+**b) Lộ dữ liệu nhạy cảm**
+```sql
+-- SELECT * → Trả về cả: password_hash, secret_key, internal_notes
+-- → Nếu dev quên filter ở app layer → Lộ password!
+```
+
+**c) Breaking changes khi thêm cột**
+```sql
+-- Hôm nay: users có 10 cột
+SELECT * FROM users;  -- App expect 10 cột
+
+-- Ngày mai: DBA thêm cột ssn (số an sinh xã hội)
+ALTER TABLE users ADD COLUMN ssn VARCHAR(20);
+
+-- SELECT * bây giờ trả về 11 cột → App crash!
+-- Hoặc worse: Lộ SSN ra ngoài
+```
+
+**d) Không tối ưu được index**
+```sql
+-- PostgreSQL phải đọc toàn bộ row từ disk (include all columns)
+-- Không thể dùng Index-only scan (covering index)
+
+-- ✅ Nếu chỉ SELECT username, email → Có thể dùng index cover
+```
+
+**e) Tốn memory & CPU**
+```sql
+-- DB phải:
+-- 1. Đọc 20 cột từ disk (I/O)
+-- 2. Deserialize 20 cột (CPU)
+-- 3. Gửi 20 cột qua network (bandwidth)
+-- 4. Client deserialize 20 cột (CPU)
+
+-- × 1000 requests/giây = Lãng phí khủng khiếp!
+```
+
+#### ✅ Đúng cách:
+
+```sql
+-- ✅ GOOD: Chỉ lấy cột cần thiết
+SELECT user_id, username, email, avatar_url, created_at
+FROM users 
+WHERE user_id = 12345;
+
+-- Lợi ích:
+-- - Giảm 90% data transfer
+-- - Không lộ sensitive data
+-- - Explicit về dependency (dễ refactor)
+-- - Có thể dùng covering index
+```
+
+---
+
+### 2. Dashboard chạy 10 giây có sao không? Còn API thì sao?
+
+#### 📊 Dashboard chạy 10 giây:
+
+**✅ Có thể chấp nhận được**, nếu:
+
+1. **User expect chậm**:
+   - Dashboard thường có loading indicator
+   - User biết đang tính toán data lớn
+   
+2. **Không block hệ thống**:
+   - Query chạy trên replica/read-only DB
+   - Không làm chậm OLTP
+
+3. **Có caching**:
+   ```sql
+   -- Cache result 5 phút
+   -- User refresh → Lấy từ cache, không query lại
+   ```
+
+4. **Async loading**:
+   ```javascript
+   // Load từng phần, không đợi hết 10 giây
+   loadChartData();      // 2s
+   loadTableData();      // 3s  
+   loadMetrics();        // 5s
+   // User thấy data hiện dần, không cảm giác "đơ"
+   ```
+
+**⚠️ Nhưng nên cải thiện**:
+
+```sql
+-- Option 1: Pre-aggregate (Materialized View)
+CREATE MATERIALIZED VIEW dashboard_daily_summary AS
+SELECT 
+    DATE(created_at) AS date,
+    COUNT(*) AS orders,
+    SUM(total_amount) AS revenue
+FROM orders
+GROUP BY DATE(created_at);
+
+-- Refresh mỗi đêm
+REFRESH MATERIALIZED VIEW dashboard_daily_summary;
+
+-- Query dashboard: < 100ms thay vì 10s
+SELECT * FROM dashboard_daily_summary 
+WHERE date >= CURRENT_DATE - 30;
+```
+
+#### 🚨 API chạy 10 giây:
+
+**❌ KHÔNG BAO GIỜ được chấp nhận!**
+
+**Lý do**:
+
+**a) User experience tệ**
+```
+API timeout (thường 30s-60s)
+→ User thấy "Loading..." 10s 
+→ User nghĩ app bị lỗi
+→ User tắt app
+→ Mất khách hàng
+```
+
+**b) Block connection pool**
+```sql
+-- Connection pool: 100 connections
+-- Mỗi request API giữ connection 10s
+-- → 10 requests/giây × 10s = 100 connections đầy!
+-- → Request thứ 101 phải chờ → Timeout
+-- → Toàn bộ app DOWN
+```
+
+**c) Vi phạm SLA**
+```
+SLA cam kết: < 100ms
+Thực tế: 10,000ms
+→ Phạt tiền theo hợp đồng
+→ Mất uy tín
+```
+
+**d) Cascade failure**
+```
+Mobile App → API Gateway (10s timeout)
+           → Backend Service (10s)
+              → Database (10s query)
+
+→ Timeout lan truyền
+→ Retry storm (mobile retry 3 lần)
+→ Database overload
+→ Toàn bộ hệ thống sập
+```
+
+#### 📋 So sánh:
+
+| Tiêu chí | Dashboard (10s) | API (10s) |
+|----------|-----------------|-----------|
+| **Acceptable?** | ⚠️ Tạm được | ❌ Tuyệt đối không |
+| **User expectation** | Chấp nhận chậm | Phải nhanh |
+| **Frequency** | 10-100 lần/ngày | 1000+ lần/giây |
+| **Retry behavior** | Không retry | Auto retry → worse |
+| **Impact** | Chỉ 1 user chờ | Toàn bộ app chậm |
+| **SLA** | Không có | < 100ms |
+| **Solution** | Cache, pre-agg | Index, optimize, cache |
+
+---
+
+### 3. Bảng 100 triệu rows có nhất thiết phải chậm không?
+
+**❌ KHÔNG! Kích thước ≠ Tốc độ**
+
+Query nhanh hay chậm phụ thuộc vào:
+
+#### ✅ **Trường hợp NHANH** (100M rows vẫn < 50ms):
+
+**1. Có index đúng**
+```sql
+-- Bảng orders: 100M rows
+CREATE INDEX idx_orders_user_date ON orders(user_id, created_at);
+
+-- Query: < 50ms
+SELECT * FROM orders 
+WHERE user_id = 12345 
+  AND created_at >= '2025-01-01'
+ORDER BY created_at DESC 
+LIMIT 10;
+
+-- Explain: Index Scan → Chỉ đọc 10 rows
+```
+
+**2. Query ít rows**
+```sql
+-- Primary key lookup: O(log n) ≈ 27 operations cho 100M rows
+SELECT * FROM orders WHERE order_id = 9999999;
+-- ⏱️ < 5ms (dù có 100M rows)
+```
+
+**3. Partition hiệu quả**
+```sql
+-- Partition theo tháng
+CREATE TABLE orders (
+    order_id BIGINT,
+    created_at DATE,
+    ...
+) PARTITION BY RANGE (created_at);
+
+-- Query chỉ scan 1 partition (3M rows) thay vì 100M
+SELECT * FROM orders 
+WHERE created_at >= '2025-01-01' AND created_at < '2025-02-01';
+-- ⏱️ < 100ms
+```
+
+**4. Covering index (Index-only scan)**
+```sql
+CREATE INDEX idx_orders_cover ON orders(user_id, created_at, total_amount);
+
+-- Query không cần đọc table, chỉ đọc index
+SELECT user_id, created_at, total_amount 
+FROM orders 
+WHERE user_id = 12345;
+-- ⏱️ < 10ms (siêu nhanh!)
+```
+
+#### ❌ **Trường hợp CHẬM** (100k rows cũng chậm):
+
+**1. Không có index**
+```sql
+-- Full table scan 100M rows
+SELECT * FROM orders WHERE status = 'pending';
+-- ⏱️ 30-60 giây (dù chỉ trả về 100 rows)
+```
+
+**2. Function trong WHERE**
+```sql
+-- Không dùng được index
+SELECT * FROM orders 
+WHERE YEAR(created_at) = 2025;
+-- ⏱️ Chậm! (scan toàn bộ)
+
+-- ✅ Đúng:
+WHERE created_at >= '2025-01-01' AND created_at < '2026-01-01';
+```
+
+**3. Implicit type conversion**
+```sql
+-- order_id là BIGINT
+SELECT * FROM orders WHERE order_id = '12345';  -- String
+-- → PostgreSQL convert mỗi row → Không dùng index
+```
+
+**4. Join không đúng cách**
+```sql
+-- Cartesian product
+SELECT * FROM orders o, order_items oi;
+-- → 100M × 200M = 20,000 trillion rows 💥
+```
+
+#### 📊 Benchmark thực tế:
+
+| Scenario | Rows | Index | Query time |
+|----------|------|-------|------------|
+| PK lookup | 100M | ✅ | < 5ms |
+| Index range scan | 100M | ✅ | < 50ms (10 rows) |
+| Full table scan | 100M | ❌ | 30-60s |
+| Index range scan | 1M | ✅ | < 10ms |
+| Full table scan | 100K | ❌ | 1-3s |
+
+**Kết luận**: **Index đúng > Kích thước bảng**
+
+---
+
+### 4. Khi nào nên archive dữ liệu cũ?
+
+#### ✅ **NÊN archive khi**:
+
+**1. Hiếm khi truy cập** (< 1 lần/tháng)
+```sql
+-- Data > 2 năm: Chỉ dùng khi có audit/dispute
+-- Archive sang S3 hoặc bảng riêng
+```
+
+**2. Bảng quá lớn → Query chậm**
+```sql
+-- orders: 100M rows → Mỗi query scan lâu
+-- Archive data > 1 năm → Còn 20M rows → Nhanh hơn 5x
+```
+
+**3. Backup/restore lâu**
+```sql
+-- Backup 1TB: 2 giờ
+-- Archive 700GB cold data
+-- Backup 300GB hot data: 30 phút
+```
+
+**4. Tiết kiệm chi phí**
+```sql
+-- 1TB data SSD: $80/tháng
+-- Archive 700GB → S3 Glacier: $2.8/tháng
+-- Tiết kiệm: $77.2/tháng = $926.4/năm
+```
+
+**5. Compliance/Legal requirement**
+```sql
+-- Luật yêu cầu: Lưu transaction 7 năm
+-- Nhưng chỉ cần truy cập khi audit
+-- → Archive sau 1 năm, lưu 7 năm
+```
+
+#### ❌ **KHÔNG nên archive khi**:
+
+**1. Vẫn truy cập thường xuyên**
+```sql
+-- Query "Doanh thu 6 tháng gần" mỗi ngày
+-- → Cần giữ ở hot storage
+```
+
+**2. Dữ liệu nhỏ**
+```sql
+-- Chỉ 10GB data → Không cần archive
+-- Chi phí vận hành > Chi phí tiết kiệm
+```
+
+**3. Cần real-time reporting**
+```sql
+-- Dashboard cần data toàn bộ lịch sử
+-- Archive → Phải query 2 chỗ (hot + archive) → Chậm
+```
+
+#### 🏗️ **Chiến lược Archive**:
+
+**Option 1: Bảng riêng**
+```sql
+-- Mỗi tháng chạy job
+INSERT INTO orders_archive 
+SELECT * FROM orders 
+WHERE created_at < NOW() - INTERVAL '1 year';
+
+DELETE FROM orders 
+WHERE created_at < NOW() - INTERVAL '1 year';
+
+-- Lợi ích: Query hot data nhanh
+-- Nhược điểm: Phải JOIN khi cần data cũ
+```
+
+**Option 2: Partition (Khuyến nghị)**
+```sql
+-- Partition theo tháng
+CREATE TABLE orders (...) PARTITION BY RANGE (created_at);
+
+-- Detach partition cũ
+ALTER TABLE orders DETACH PARTITION orders_2023_01;
+
+-- Move sang tablespace khác (HDD hoặc S3)
+ALTER TABLE orders_2023_01 SET TABLESPACE archive_storage;
+
+-- Lợi ích: Transparent cho app
+```
+
+**Option 3: Export ra Data Lake**
+```sql
+-- Export sang Parquet file trên S3
+COPY (
+    SELECT * FROM orders 
+    WHERE created_at < NOW() - INTERVAL '2 years'
+) TO '/tmp/orders_2023.parquet' WITH (FORMAT PARQUET);
+
+-- Upload lên S3
+aws s3 cp /tmp/orders_2023.parquet s3://data-lake/orders/year=2023/
+
+-- Delete từ DB
+DELETE FROM orders WHERE created_at < NOW() - INTERVAL '2 years';
+
+-- Query khi cần: Dùng Athena/Presto
+```
+
+#### 📋 **Checklist quyết định archive**:
+
+```
+☑️ Data > 1 năm tuổi
+☑️ Truy cập < 1 lần/tháng
+☑️ Bảng > 100GB
+☑️ Query đang chậm do scan nhiều row
+☑️ Có chiến lược restore khi cần
+☑️ Đã test query sau khi archive
+☑️ Có monitoring để phát hiện issue
+
+→ NÊN archive!
+```
+
+---
+
+## 🎓 Tổng kết đáp án
+
+1. **`SELECT *`**: Lãng phí bandwidth, lộ data, không tối ưu index → **Tuyệt đối tránh trong API**
+
+2. **Dashboard 10s vs API 10s**: Dashboard tạm OK (nhưng nên cải thiện), API **KHÔNG BAO GIỜ** được phép
+
+3. **100M rows**: Không nhất thiết chậm nếu có **index đúng + query đúng + partition tốt**
+
+4. **Archive**: Nên làm khi data **hiếm truy cập + bảng lớn + tiết kiệm chi phí**, nhưng cần **có chiến lược restore**
+
+---
+
 ## 📚 Tài liệu tham khảo
 
 - [PostgreSQL Use Cases](https://www.postgresql.org/about/)

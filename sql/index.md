@@ -1,7 +1,8 @@
 # SQL ZERO → HERO (Enterprise) — Task-based Learning Plan
 
 > Mục tiêu tổng: nắm chắc nền tảng → viết đúng SQL → tối ưu truy vấn → xử lý data lớn (API/Batch/Report) → đủ năng lực review & thiết kế dữ liệu theo nhu cầu doanh nghiệp.
-> Sử dụng oracle
+> Sử dụng postgre
+> Nếu xử lí dữ liệu lớn, query, cần có phần thực hành rõ ràng cho tôi
 ---
 
 ## TASK 01 — Hiểu “Doanh nghiệp dùng SQL để làm gì”
