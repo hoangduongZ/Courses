@@ -1,0 +1,45 @@
+# Định nghĩa các service (dịch vụ) cần chạy
+services:
+  # Tên service: oracle-db
+  oracle-db:
+    # Image Oracle Database Express Edition phiên bản 21.3.0
+    # Express = phiên bản miễn phí, giới hạn 2 CPU, 2GB RAM, 12GB data
+    image: container-registry.oracle.com/database/express:21.3.0-xe
+    
+    # Đặt tên container (dễ nhận biết khi dùng docker ps)
+    container_name: oracle-xe
+    
+    # Mapping port: "port_máy_host:port_trong_container"
+    ports:
+      - "1521:1521"  # Port cho SQL connections (SQL*Plus, DBeaver, etc.)
+      - "5500:5500"  # Port cho Oracle Enterprise Manager (web interface)
+    
+    # Biến môi trường để config Oracle
+    environment:
+      # Mật khẩu cho user SYS và SYSTEM (lấy từ file .env)
+      - ORACLE_PWD=${ORACLE_PWD}
+      
+      # Bộ ký tự Unicode hỗ trợ đa ngôn ngữ (tiếng Việt, emoji, etc.)
+      # :-AL32UTF8 là giá trị default nếu không có trong .env
+      - ORACLE_CHARACTERSET=${ORACLE_CHARACTERSET:-AL32UTF8}
+    
+    # Mount volumes để lưu trữ data
+    volumes:
+      # Named volume: lưu database files (data persistent khi restart)
+      - oracle-data:/opt/oracle/oradata
+      
+      # Bind mount: các file .sql trong init-scripts/ sẽ tự động chạy khi khởi tạo
+      - ./init-scripts:/opt/oracle/scripts/startup
+    
+    # Shared memory size (Oracle cần để cache và performance)
+    # 1g = 1 gigabyte
+    shm_size: 1g
+    
+    # Chính sách restart: tự động khởi động lại trừ khi bạn stop thủ công
+    restart: unless-stopped
+
+# Định nghĩa volumes (nơi lưu trữ data)
+volumes:
+  # Named volume để lưu data của Oracle
+  oracle-data:
+    driver: local  # Lưu trữ local trên máy host
