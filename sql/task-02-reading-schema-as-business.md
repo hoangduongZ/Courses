@@ -4,6 +4,78 @@
 
 ---
 
+## 0. SCHEMA OVERVIEW — Nhìn toàn cảnh trước
+
+### Entity Relationship Diagram (ERD)
+
+```mermaid
+erDiagram
+    USERS ||--o{ ORDERS : places
+    USERS ||--o| USER_PROFILES : has
+    ORDERS ||--|{ ORDER_ITEMS : contains
+    PRODUCTS ||--o{ ORDER_ITEMS : included_in
+    CATEGORIES ||--o{ PRODUCTS : categorizes
+    CATEGORIES ||--o{ CATEGORIES : parent_of
+
+    USERS {
+        int user_id PK
+        string username
+        string email
+        datetime created_at
+    }
+
+    USER_PROFILES {
+        int user_id PK
+        int user_id FK
+        string full_name
+        string phone
+        string address
+        date date_of_birth
+    }
+
+    ORDERS {
+        int order_id PK
+        int user_id FK
+        datetime order_date
+        float total_amount
+        string status
+        datetime shipped_date
+    }
+
+    ORDER_ITEMS {
+        int order_item_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        float unit_price
+        float discount
+    }
+
+    PRODUCTS {
+        int product_id PK
+        string product_name
+        int category_id FK
+        float price
+        int stock
+    }
+
+    CATEGORIES {
+        int category_id PK
+        string category_name
+        int parent_category_id FK
+    }
+```
+
+**Đọc diagram:**
+- `||--o{` = One to Many (1:N)
+- `||--o|` = One to One (1:1)
+- `||--|{` = One to Many (1:N, mandatory)
+- PK = Primary Key
+- FK = Foreign Key
+- UK = Unique Key
+
+---
+
 ## 1. THEORY — Nền tảng đọc schema
 
 ### 1.1. PK (Primary Key) - Định danh duy nhất
@@ -162,6 +234,75 @@ FROM products
 GROUP BY category;
 -- NULL category được group thành 1 nhóm riêng
 ```
+
+---
+
+### 1.6. Index Implications - Hiểu tác động của khóa lên performance
+
+#### **PK tự động tạo Index**
+```sql
+-- PostgreSQL tự động tạo UNIQUE INDEX cho PK
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY  -- Tự động tạo index
+);
+
+-- Equivalent to:
+-- CREATE UNIQUE INDEX users_pkey ON users(user_id);
+```
+**Impact:**
+- Query theo PK cực nhanh (O(log n))
+- `WHERE user_id = 1` → Index Scan
+- `ORDER BY user_id` → nhanh
+
+#### **FK KHÔNG tự động tạo Index**
+```sql
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+-- FK được tạo, nhưng CHƯA có index trên orders.user_id!
+```
+
+**Problem:**
+```sql
+-- Query này CÓ THỂ chậm nếu orders lớn
+SELECT * FROM orders WHERE user_id = 1;
+-- → Sequential Scan (quét toàn bộ bảng)
+```
+
+**Solution:**
+```sql
+-- Tự tạo index cho FK
+CREATE INDEX idx_orders_user_id ON orders(user_id);
+
+-- Bây giờ query nhanh hơn
+SELECT * FROM orders WHERE user_id = 1;
+-- → Index Scan
+```
+
+#### **Best Practice: Luôn index FK**
+```sql
+-- Pattern chuẩn
+CREATE TABLE order_items (
+    order_item_id SERIAL PRIMARY KEY,
+    order_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+-- Tạo index cho TẤT CẢ FK
+CREATE INDEX idx_order_items_order_id ON order_items(order_id);
+CREATE INDEX idx_order_items_product_id ON order_items(product_id);
+```
+
+**Khi nào cần Index FK?**
+- ✅ Bảng lớn (>10k rows)
+- ✅ Hay JOIN theo FK
+- ✅ Hay WHERE theo FK
+- ✅ Có ON DELETE CASCADE (cần index để xóa nhanh)
+- ❌ Bảng nhỏ (<1k rows) và ít query
 
 ---
 
@@ -383,7 +524,7 @@ FROM order_items;
 
 ### **Exercise 4: Đọc schema để trả lời business**
 
-**Không viết query, chỉ dựa vào schema để trả lời:**
+**Bước 1: Không viết query, chỉ dựa vào schema để trả lời:**
 
 1. Làm sao biết 1 user đã đặt bao nhiêu đơn hàng?
 2. Làm sao biết 1 sản phẩm được bán bao nhiêu lần?
@@ -392,13 +533,68 @@ FROM order_items;
 5. Làm sao tìm category cha của "Phones"?
 
 <details>
-<summary>Đáp án</summary>
+<summary>Đáp án phân tích</summary>
 
 1. **COUNT orders theo user_id:** `orders.user_id → users.user_id`
 2. **COUNT order_items theo product_id:** `order_items.product_id → products.product_id`
 3. **SUM từ order_items:** `order_items.order_id → orders.order_id`, sum (quantity * unit_price - discount)
 4. **JOIN users → orders:** WHERE users.username = 'john_doe'
 5. **Self-join categories:** `categories.parent_category_id → categories.category_id` WHERE category_name = 'Phones'
+</details>
+
+**Bước 2: Viết queries để verify:**
+
+<details>
+<summary>Queries solution</summary>
+
+```sql
+-- 1. User đã đặt bao nhiêu đơn hàng?
+SELECT 
+    u.username,
+    COUNT(o.order_id) as total_orders
+FROM users u
+LEFT JOIN orders o ON u.user_id = o.user_id
+GROUP BY u.user_id, u.username
+ORDER BY total_orders DESC;
+
+-- 2. Sản phẩm được bán bao nhiêu lần?
+SELECT 
+    p.product_name,
+    COUNT(oi.order_item_id) as times_sold,
+    SUM(oi.quantity) as total_quantity_sold
+FROM products p
+LEFT JOIN order_items oi ON p.product_id = oi.product_id
+GROUP BY p.product_id, p.product_name
+ORDER BY times_sold DESC;
+
+-- 3. Tổng doanh thu của đơn hàng (calculated vs stored)
+SELECT 
+    o.order_id,
+    o.total_amount as stored_total,
+    SUM(oi.quantity * oi.unit_price - COALESCE(oi.discount, 0)) as calculated_total
+FROM orders o
+LEFT JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY o.order_id, o.total_amount;
+
+-- 4. Tất cả đơn hàng của user "john_doe"
+SELECT 
+    o.order_id,
+    o.order_date,
+    o.status,
+    o.total_amount
+FROM users u
+INNER JOIN orders o ON u.user_id = o.user_id
+WHERE u.username = 'john_doe'
+ORDER BY o.order_date DESC;
+
+-- 5. Category cha của "Phones"
+SELECT 
+    child.category_name as child_category,
+    parent.category_name as parent_category
+FROM categories child
+LEFT JOIN categories parent ON child.parent_category_id = parent.category_id
+WHERE child.category_name = 'Phones';
+```
 </details>
 
 ---
@@ -476,16 +672,345 @@ DELETE FROM users WHERE user_id = 1;
 
 ---
 
-## 4. CHECKLIST ĐẠT TASK 02
+### **Exercise 7: Real-world Scenarios**
+
+#### **Scenario A: Soft Delete Pattern**
+
+**Problem:** Không muốn xóa user thật (phải giữ lịch sử), nhưng cần "vô hiệu hóa" user.
+
+**Solution: Thêm cột deleted_at**
+```sql
+-- Sửa bảng users
+ALTER TABLE users ADD COLUMN deleted_at TIMESTAMP NULL;
+ALTER TABLE users ADD COLUMN is_active BOOLEAN DEFAULT TRUE;
+
+-- "Xóa" user (soft delete)
+UPDATE users 
+SET deleted_at = CURRENT_TIMESTAMP, is_active = FALSE
+WHERE user_id = 1;
+
+-- Query chỉ lấy user active
+SELECT * FROM users WHERE deleted_at IS NULL;
+-- hoặc
+SELECT * FROM users WHERE is_active = TRUE;
+
+-- Restore user
+UPDATE users 
+SET deleted_at = NULL, is_active = TRUE
+WHERE user_id = 1;
+```
+
+**Best Practice:**
+- Luôn thêm WHERE deleted_at IS NULL trong queries
+- Tạo view để tự động filter
+```sql
+CREATE VIEW active_users AS
+SELECT * FROM users WHERE deleted_at IS NULL;
+
+-- Dùng view thay vì bảng gốc
+SELECT * FROM active_users;
+```
+
+#### **Scenario B: Audit Columns Pattern**
+
+**Problem:** Cần biết ai tạo, ai sửa, khi nào?
+
+**Solution: Thêm audit columns**
+```sql
+-- Pattern chuẩn cho mọi bảng
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    
+    -- Audit columns
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_by INTEGER REFERENCES users(user_id),
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by INTEGER REFERENCES users(user_id),
+    deleted_at TIMESTAMP NULL,
+    deleted_by INTEGER REFERENCES users(user_id)
+);
+
+-- Trigger tự động update updated_at
+CREATE OR REPLACE FUNCTION update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER set_updated_at
+BEFORE UPDATE ON products
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+```
+
+**Lợi ích:**
+- Truy vết được mọi thay đổi
+- Debug dễ hơn
+- Compliance với audit requirements
+
+#### **Scenario C: Versioning Pattern**
+
+**Problem:** Cần lưu lịch sử thay đổi giá sản phẩm.
+
+**Solution: Bảng history**
+```sql
+-- Bảng chính
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR(100),
+    current_price DECIMAL(10,2)
+);
+
+-- Bảng lịch sử giá
+CREATE TABLE product_price_history (
+    history_id SERIAL PRIMARY KEY,
+    product_id INTEGER REFERENCES products(product_id),
+    old_price DECIMAL(10,2),
+    new_price DECIMAL(10,2),
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    changed_by INTEGER REFERENCES users(user_id)
+);
+
+-- Trigger tự động log thay đổi giá
+CREATE OR REPLACE FUNCTION log_price_change()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF OLD.current_price != NEW.current_price THEN
+        INSERT INTO product_price_history (product_id, old_price, new_price)
+        VALUES (NEW.product_id, OLD.current_price, NEW.current_price);
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER track_price_changes
+AFTER UPDATE ON products
+FOR EACH ROW
+EXECUTE FUNCTION log_price_change();
+```
+
+---
+
+## 4. COMMON MISTAKES — Lỗi thường gặp
+
+### ❌ Mistake 1: Quên NULL trong tính toán
+```sql
+-- SAI: discount NULL làm hỏng tổng
+SELECT 
+    order_id,
+    SUM(quantity * unit_price - discount) as total  -- SAI!
+FROM order_items
+GROUP BY order_id;
+
+-- ĐÚNG: COALESCE NULL thành 0
+SELECT 
+    order_id,
+    SUM(quantity * unit_price - COALESCE(discount, 0)) as total
+FROM order_items
+GROUP BY order_id;
+```
+
+### ❌ Mistake 2: JOIN sai dẫn data explosion
+```sql
+-- Problem: 1 user có 2 orders, mỗi order có 3 items
+-- → 2 * 3 = 6 rows, nhưng COUNT(*) = 6, không phải 2!
+
+SELECT 
+    u.username,
+    COUNT(*) as order_count  -- SAI! = 6 thay vì 2
+FROM users u
+INNER JOIN orders o ON u.user_id = o.user_id
+INNER JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY u.username;
+
+-- ĐÚNG: COUNT DISTINCT
+SELECT 
+    u.username,
+    COUNT(DISTINCT o.order_id) as order_count  -- ĐÚNG = 2
+FROM users u
+INNER JOIN orders o ON u.user_id = o.user_id
+INNER JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY u.username;
+
+-- HOẶC: Không JOIN thừa
+SELECT 
+    u.username,
+    COUNT(o.order_id) as order_count
+FROM users u
+LEFT JOIN orders o ON u.user_id = o.user_id
+GROUP BY u.username;
+```
+
+### ❌ Mistake 3: Không hiểu LEFT vs INNER JOIN với NULL
+```sql
+-- Data:
+-- users: id=1,2,3
+-- orders: user_id=1,1,2 (user 3 chưa order)
+
+-- INNER JOIN: Chỉ lấy user có orders
+SELECT u.username, COUNT(o.order_id)
+FROM users u
+INNER JOIN orders o ON u.user_id = o.user_id
+GROUP BY u.username;
+-- Result: john=2, alice=1 (thiếu bob!)
+
+-- LEFT JOIN: Lấy tất cả users
+SELECT u.username, COUNT(o.order_id)
+FROM users u
+LEFT JOIN orders o ON u.user_id = o.user_id
+GROUP BY u.username;
+-- Result: john=2, alice=1, bob=0 (đúng!)
+```
+
+### ❌ Mistake 4: Quên index FK
+```sql
+-- Tạo FK nhưng quên index
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+-- → Query WHERE user_id = X sẽ CHẬM!
+
+-- ĐÚNG: Luôn index FK
+CREATE INDEX idx_orders_user_id ON orders(user_id);
+```
+
+### ❌ Mistake 5: Denormalization không đồng bộ
+```sql
+-- orders.total_amount là denormalized field
+-- Nhưng không update khi order_items thay đổi!
+
+-- SAI: Insert order_items nhưng không update orders.total_amount
+INSERT INTO order_items (order_id, product_id, quantity, unit_price)
+VALUES (1, 5, 2, 29.99);
+-- orders.total_amount vẫn cũ → SAI!
+
+-- ĐÚNG: Dùng trigger hoặc transaction
+BEGIN;
+    INSERT INTO order_items ...;
+    UPDATE orders 
+    SET total_amount = (
+        SELECT SUM(quantity * unit_price - COALESCE(discount, 0))
+        FROM order_items
+        WHERE order_id = 1
+    )
+    WHERE order_id = 1;
+COMMIT;
+```
+
+---
+
+## 5. BEST PRACTICES — Quy tắc vàng
+
+### ✅ Practice 1: NULL Design Decision
+
+**Khi nào cho phép NULL?**
+- ✅ Optional information: `phone`, `middle_name`, `shipped_date`
+- ✅ Future data: `completed_at`, `cancelled_at`
+- ✅ Conditional fields: `discount` (không phải lúc nào cũng có)
+
+**Khi nào KHÔNG cho phép NULL?**
+- ❌ Business identifiers: `email`, `username`, `order_id`
+- ❌ Audit fields: `created_at`, `created_by`
+- ❌ Foreign keys (nếu relationship là mandatory)
+
+```sql
+-- Good design
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,              -- FK mandatory
+    order_date TIMESTAMP NOT NULL,         -- Luôn cần
+    shipped_date TIMESTAMP NULL,           -- Optional (chưa ship)
+    notes TEXT NULL,                       -- Optional
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+```
+
+### ✅ Practice 2: Naming Conventions
+
+```sql
+-- ✅ GOOD: Consistent, clear
+users.user_id
+orders.user_id        -- FK giống tên PK
+order_items.order_id
+
+-- ❌ BAD: Inconsistent
+users.id
+orders.userId         -- camelCase không chuẩn SQL
+order_items.orderId
+```
+
+**Quy tắc:**
+- Table: `lowercase_plural` → `users`, `order_items`
+- Column: `lowercase_underscore` → `user_id`, `created_at`
+- PK: `{table_name}_id` → `user_id`, `order_id`
+- FK: Giống tên PK mà nó tham chiếu
+- Boolean: `is_active`, `has_shipped`, `can_edit`
+
+### ✅ Practice 3: Composite Keys khi nào cần?
+
+```sql
+-- Scenario: 1 user chỉ có 1 active cart
+CREATE TABLE shopping_carts (
+    user_id INTEGER NOT NULL,
+    session_id VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, session_id),  -- Composite PK
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Hoặc: Unique constraint
+CREATE TABLE user_settings (
+    setting_id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    setting_key VARCHAR(50) NOT NULL,
+    setting_value TEXT,
+    UNIQUE (user_id, setting_key),  -- 1 user, 1 key chỉ 1 giá trị
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+```
+
+### ✅ Practice 4: Always have timestamps
+
+```sql
+-- Minimum audit columns cho MỌI bảng
+CREATE TABLE any_table (
+    id SERIAL PRIMARY KEY,
+    -- ... business columns ...
+    
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### ✅ Practice 5: Document your schema
+
+```sql
+-- Dùng COMMENT để giải thích
+COMMENT ON TABLE orders IS 'Customer orders with payment and shipping info';
+COMMENT ON COLUMN orders.status IS 'Values: pending, paid, shipped, delivered, cancelled';
+COMMENT ON COLUMN orders.total_amount IS 'Denormalized field - sum of order_items. Updated via trigger.';
+```
+
+---
+
+## 6. CHECKLIST ĐẠT TASK 02
 
 ✅ **Hiểu PK/FK:**
 - [ ] Biết PK là gì, tại sao cần PK
 - [ ] Biết FK là gì, đọc FK là hiểu luồng business
 - [ ] Hiểu CASCADE behavior (DELETE, UPDATE)
+- [ ] Biết PK tự động index, FK KHÔNG tự động index
 
 ✅ **Phân biệt Cardinality:**
 - [ ] Nhận diện 1:1, 1:N, N:N chỉ bằng nhìn schema
 - [ ] Biết N:N cần bảng trung gian
+- [ ] Đọc được ERD diagram
 
 ✅ **Master vs Fact:**
 - [ ] Phân biệt được bảng nào là Master, bảng nào là Fact
@@ -495,18 +1020,47 @@ DELETE FROM users WHERE user_id = 1;
 - [ ] NULL ≠ 0 ≠ ''
 - [ ] Dùng IS NULL, không dùng = NULL
 - [ ] Hiểu NULL trong COUNT, SUM, JOIN
+- [ ] Luôn dùng COALESCE khi tính toán với NULL
+
+✅ **Index implications:**
+- [ ] Biết khi nào cần index FK
+- [ ] Hiểu tác động của index lên performance
 
 ✅ **Đọc schema trả lời business:**
 - [ ] Nhìn schema biết query nào cần JOIN nào
 - [ ] Nhận diện được lỗi thiết kế tiềm năng
+- [ ] Tránh được data explosion khi JOIN
+
+✅ **Best Practices:**
+- [ ] Biết khi nào cho phép NULL, khi nào không
+- [ ] Áp dụng naming conventions nhất quán
+- [ ] Hiểu soft delete và audit columns pattern
+- [ ] Document schema bằng COMMENT
+
+✅ **Common Mistakes:**
+- [ ] Tránh quên COALESCE với NULL
+- [ ] Tránh data explosion khi JOIN nhiều bảng
+- [ ] Hiểu LEFT vs INNER JOIN với NULL
+- [ ] Không quên index FK
 
 ---
 
-## 5. NEXT STEP
+## 7. NEXT STEP
 
 Sau khi hoàn thành Task 02, bạn đã:
 - Hiểu cấu trúc dữ liệu như hiểu nghiệp vụ
 - Sẵn sàng viết query JOIN đúng (Task 07, 08)
 - Tránh được lỗi sai logic do hiểu sai schema
+- Nắm vững best practices và tránh được common mistakes
+- Có thể áp dụng real-world patterns (soft delete, audit, versioning)
 
 **→ Tiếp theo: TASK 03 — SELECT tối thiểu, đúng thứ cần**
+
+---
+
+## 📚 TÀI LIỆU THAM KHẢO
+
+- [PostgreSQL Foreign Keys](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-FK)
+- [Database Normalization](https://en.wikipedia.org/wiki/Database_normalization)
+- [ERD Best Practices](https://vertabelo.com/blog/entity-relationship-diagram/)
+- [SQL NULL Handling](https://modern-sql.com/concept/null)
