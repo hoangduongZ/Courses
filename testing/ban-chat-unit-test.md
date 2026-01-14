@@ -173,4 +173,6 @@ if (xml == null) {
 - Có test error path chưa?
 - Case này có cần integration test không?
 
+Unit Test không chứng minh code CHẠY ĐÚNG
+Unit Test chứng minh code KHÔNG BỊ PHÁ
 ---
