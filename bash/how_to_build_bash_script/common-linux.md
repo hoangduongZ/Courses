@@ -169,6 +169,7 @@ sed 's/old/new/g' file.txt > new_file.txt
 
 # Sửa trực tiếp file gốc (cẩn thận!)
 sed -i 's/old/new/g' file.txt
+-i: in place
 
 # Backup trước khi sửa
 sed -i.bak 's/old/new/g' file.txt
@@ -208,10 +209,10 @@ sed -n '/error/p' file.txt
 ```bash
 # Thêm text trước dòng 1
 sed '1i\New first line' file.txt
-
+i: insert
 # Thêm text sau dòng 3
 sed '3a\New line after line 3' file.txt
-
+a: append
 # Thêm text trước dòng chứa "pattern"
 sed '/pattern/i\Text before pattern' file.txt
 ```
@@ -257,6 +258,7 @@ sed 's/WARNING/WARN/g' app.log
 
 # In chỉ các dòng ERROR
 sed -n '/ERROR/p' app.log
+-n: no print không cho in hết ra ngay, đi qua bộ lọc trước
 ```
 
 #### Ví dụ 3: Xử lý CSV

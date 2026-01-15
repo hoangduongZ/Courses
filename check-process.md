@@ -1,3 +1,5 @@
-120126: done sql-task02
+120126: done sql - task02
 140126: testing -  unit-test-thinking-process.md - read to :172
-140126: bash - linux-common - read to :58
+140126: bash - linux-common.md - read to :58
+150126: bash - linux-common.md - read to :152
+150126: bash - linux-common.md - read to :287
