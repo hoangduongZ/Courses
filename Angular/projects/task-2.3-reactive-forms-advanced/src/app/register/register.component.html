@@ -1,0 +1,175 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2 class="register-title">Đăng Ký Tài Khoản</h2>
+    <p class="register-subtitle">Vui lòng điền đầy đủ thông tin bên dưới</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username <span class="required">*</span></label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('username')"
+          placeholder="Nhập username (VD: john_doe123)"
+        />
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('username')">
+          {{ getErrorMessage('username') }}
+        </div>
+        <small class="form-text">3-20 ký tự, bắt đầu bằng chữ cái, chỉ chứa chữ, số, _, -</small>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email <span class="required">*</span></label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('email')"
+          placeholder="Nhập email (VD: user@example.com)"
+        />
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('email')">
+          {{ getErrorMessage('email') }}
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+        <label for="phone">Số điện thoại <span class="required">*</span></label>
+        <input
+          type="tel"
+          id="phone"
+          formControlName="phone"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('phone')"
+          placeholder="Nhập số điện thoại (VD: 0901234567)"
+        />
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('phone')">
+          {{ getErrorMessage('phone') }}
+        </div>
+        <small class="form-text">Số điện thoại Việt Nam hợp lệ</small>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-group">
+        <label for="dateOfBirth">Ngày sinh <span class="required">*</span></label>
+        <input
+          type="date"
+          id="dateOfBirth"
+          formControlName="dateOfBirth"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('dateOfBirth')"
+        />
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('dateOfBirth')">
+          {{ getErrorMessage('dateOfBirth') }}
+        </div>
+        <small class="form-text">Bạn phải từ 18 tuổi trở lên</small>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Mật khẩu <span class="required">*</span></label>
+        <div class="password-wrapper">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            formControlName="password"
+            class="form-control"
+            [class.is-invalid]="isFieldInvalid('password')"
+            placeholder="Nhập mật khẩu"
+          />
+          <button 
+            type="button" 
+            class="toggle-password"
+            (click)="togglePasswordVisibility('password')"
+          >
+            {{ showPassword ? '🙈' : '👁️' }}
+          </button>
+        </div>
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('password')">
+          {{ getErrorMessage('password') }}
+        </div>
+        <small class="form-text">Ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt</small>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirmPassword">Xác nhận mật khẩu <span class="required">*</span></label>
+        <div class="password-wrapper">
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            class="form-control"
+            [class.is-invalid]="isFieldInvalid('confirmPassword')"
+            placeholder="Nhập lại mật khẩu"
+          />
+          <button 
+            type="button" 
+            class="toggle-password"
+            (click)="togglePasswordVisibility('confirmPassword')"
+          >
+            {{ showConfirmPassword ? '🙈' : '👁️' }}
+          </button>
+        </div>
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('confirmPassword')">
+          {{ getErrorMessage('confirmPassword') }}
+        </div>
+      </div>
+
+      <!-- Agree Terms Checkbox -->
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            formControlName="agreeTerms"
+            [class.is-invalid]="isFieldInvalid('agreeTerms')"
+          />
+          <span>
+            Tôi đồng ý với 
+            <a href="#" class="link">Điều khoản sử dụng</a> 
+            và 
+            <a href="#" class="link">Chính sách bảo mật</a>
+            <span class="required">*</span>
+          </span>
+        </label>
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('agreeTerms')">
+          {{ getErrorMessage('agreeTerms') }}
+        </div>
+      </div>
+
+      <!-- Form Status -->
+      <div class="form-status" *ngIf="submitted && registerForm.invalid">
+        <div class="alert alert-danger">
+          ⚠️ Vui lòng kiểm tra lại thông tin. Có {{ invalidFieldsCount }} trường không hợp lệ.
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          Đăng ký
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">
+          Làm mới
+        </button>
+      </div>
+
+      <!-- Form Debug Info (for development) -->
+      <div class="debug-info" *ngIf="registerForm.invalid && submitted">
+        <details>
+          <summary>🔍 Debug Info (Form State)</summary>
+          <pre>{{ registerForm.value | json }}</pre>
+          <p><strong>Form Valid:</strong> {{ registerForm.valid }}</p>
+          <p><strong>Form Errors:</strong> {{ registerForm.errors | json }}</p>
+        </details>
+      </div>
+
+    </form>
+  </div>
+</div>

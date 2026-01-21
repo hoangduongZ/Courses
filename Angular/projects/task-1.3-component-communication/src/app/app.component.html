@@ -1,0 +1,142 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>{{ title }}</h1>
+    <p class="subtitle">Parent-Child Component Communication Demo</p>
+  </header>
+
+  <main class="app-main">
+    <!-- Parent State Display -->
+    <section class="parent-state">
+      <h2>📊 Parent Component State</h2>
+      <div class="state-grid">
+        <div class="state-item">
+          <span class="label">Counter 1:</span>
+          <span class="value">{{ counter1Value }}</span>
+        </div>
+        <div class="state-item">
+          <span class="label">Counter 2:</span>
+          <span class="value">{{ counter2Value }}</span>
+        </div>
+        <div class="state-item">
+          <span class="label">Counter 3:</span>
+          <span class="value">{{ counter3Value }}</span>
+        </div>
+        <div class="state-item total">
+          <span class="label">Total:</span>
+          <span class="value">{{ totalValue }}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Counter Components Grid -->
+    <section class="counters-section">
+      <h2>🔢 Child Counter Components</h2>
+      
+      <div class="counters-grid">
+        <!-- Counter 1: Basic counter -->
+        <div class="counter-wrapper">
+          <app-counter
+            [initialValue]="10"
+            [step]="1"
+            [min]="0"
+            [max]="20"
+            [counterTitle]="'Basic Counter'"
+            (valueChange)="onCounter1Change($event)"
+            (minReached)="onCounter1MinReached()"
+            (maxReached)="onCounter1MaxReached()"
+            (reset)="onCounter1Reset()">
+          </app-counter>
+        </div>
+
+        <!-- Counter 2: Step by 5 -->
+        <div class="counter-wrapper">
+          <app-counter
+            [initialValue]="50"
+            [step]="5"
+            [min]="0"
+            [max]="100"
+            [counterTitle]="'Step by 5'"
+            (valueChange)="onCounter2Change($event)"
+            (minReached)="onCounter2MinReached()"
+            (maxReached)="onCounter2MaxReached()"
+            (reset)="onCounter2Reset()">
+          </app-counter>
+        </div>
+
+        <!-- Counter 3: Step by 10 -->
+        <div class="counter-wrapper">
+          <app-counter
+            [initialValue]="0"
+            [step]="10"
+            [min]="-50"
+            [max]="50"
+            [counterTitle]="'Negative Range'"
+            (valueChange)="onCounter3Change($event)"
+            (minReached)="onCounter3MinReached()"
+            (maxReached)="onCounter3MaxReached()"
+            (reset)="onCounter3Reset()">
+          </app-counter>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event History -->
+    <section class="event-history">
+      <div class="history-header">
+        <h2>📝 Event History ($event flow)</h2>
+        <button class="btn-clear" (click)="clearHistory()">Clear History</button>
+      </div>
+      
+      <div class="history-container" *ngIf="eventHistory.length > 0; else noEvents">
+        <div class="event-item" *ngFor="let event of eventHistory">
+          {{ event }}
+        </div>
+      </div>
+      
+      <ng-template #noEvents>
+        <p class="no-events">No events yet. Interact with counters to see events.</p>
+      </ng-template>
+    </section>
+
+    <!-- Explanation Section -->
+    <section class="explanation">
+      <h2>💡 How It Works</h2>
+      <div class="explanation-grid">
+        <div class="explanation-card">
+          <h3>@Input() - Parent to Child</h3>
+          <p>Parent passes data down to child components using property binding:</p>
+          <code>[initialValue]="10"</code>
+          <p>Child receives via <code>@Input() initialValue: number</code></p>
+        </div>
+        
+        <div class="explanation-card">
+          <h3>@Output() - Child to Parent</h3>
+          <p>Child emits events up to parent using EventEmitter:</p>
+          <code>(valueChange)="onCounter1Change($event)"</code>
+          <p>Child emits via <code>@Output() valueChange = new EventEmitter&lt;number&gt;()</code></p>
+        </div>
+        
+        <div class="explanation-card">
+          <h3>$event Object</h3>
+          <p>Contains the data emitted by child component:</p>
+          <code>this.valueChange.emit(this.currentValue)</code>
+          <p>Parent receives value through <code>$event</code> parameter</p>
+        </div>
+        
+        <div class="explanation-card">
+          <h3>Two-Way Communication</h3>
+          <p>Combining @Input and @Output enables:</p>
+          <ul>
+            <li>Parent controls child state</li>
+            <li>Child notifies parent of changes</li>
+            <li>Reactive, event-driven architecture</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Angular Task 1.3 - Component Communication | @Input, @Output, EventEmitter</p>
+  </footer>
+</div>

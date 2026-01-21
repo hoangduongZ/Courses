@@ -1,0 +1,309 @@
+<div class="container">
+  <div class="form-card">
+    <h2>Login Form</h2>
+    <p class="subtitle">Reactive Forms with FormBuilder</p>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!loginSuccess">
+      
+      <!-- Username Field -->
+      <div class="form-group">
+        <label for="username">
+          Username <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          formControlName="username"
+          placeholder="Enter your username"
+          [class.is-invalid]="f['username'].invalid && (f['username'].touched || submitted)"
+          [class.is-valid]="f['username'].valid && f['username'].touched"
+        />
+        
+        <!-- Validation Messages -->
+        <div class="validation-messages" *ngIf="f['username'].invalid && (f['username'].touched || submitted)">
+          <small class="error" *ngIf="f['username'].errors?.['required']">
+            ⚠️ Username is required
+          </small>
+          <small class="error" *ngIf="f['username'].errors?.['minlength']">
+            ⚠️ Username must be at least {{ f['username'].errors?.['minlength'].requiredLength }} characters
+            (current: {{ f['username'].value?.length || 0 }})
+          </small>
+        </div>
+
+        <!-- Field State -->
+        <div class="validation-state" *ngIf="f['username'].touched">
+          <small>
+            <strong>State:</strong>
+            <span [class.text-success]="f['username'].valid" [class.text-danger]="f['username'].invalid">
+              {{ f['username'].valid ? '✓ Valid' : '✗ Invalid' }}
+            </span>
+            |
+            <strong>Touched:</strong> {{ f['username'].touched ? 'Yes' : 'No' }}
+            |
+            <strong>Dirty:</strong> {{ f['username'].dirty ? 'Yes' : 'No' }}
+          </small>
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">
+          Password <span class="required">*</span>
+        </label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Enter your password"
+          [class.is-invalid]="f['password'].invalid && (f['password'].touched || submitted)"
+          [class.is-valid]="f['password'].valid && f['password'].touched"
+        />
+        
+        <!-- Validation Messages -->
+        <div class="validation-messages" *ngIf="f['password'].invalid && (f['password'].touched || submitted)">
+          <small class="error" *ngIf="f['password'].errors?.['required']">
+            ⚠️ Password is required
+          </small>
+          <small class="error" *ngIf="f['password'].errors?.['minlength']">
+            ⚠️ Password must be at least {{ f['password'].errors?.['minlength'].requiredLength }} characters
+            (current: {{ f['password'].value?.length || 0 }})
+          </small>
+        </div>
+
+        <!-- Field State -->
+        <div class="validation-state" *ngIf="f['password'].touched">
+          <small>
+            <strong>State:</strong>
+            <span [class.text-success]="f['password'].valid" [class.text-danger]="f['password'].invalid">
+              {{ f['password'].valid ? '✓ Valid' : '✗ Invalid' }}
+            </span>
+            |
+            <strong>Touched:</strong> {{ f['password'].touched ? 'Yes' : 'No' }}
+            |
+            <strong>Dirty:</strong> {{ f['password'].dirty ? 'Yes' : 'No' }}
+          </small>
+        </div>
+      </div>
+
+      <!-- Remember Me Checkbox -->
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            formControlName="rememberMe"
+            class="checkbox-input"
+          />
+          <span>Remember me</span>
+        </label>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button 
+          type="submit" 
+          class="btn btn-primary"
+          [disabled]="loginForm.invalid && submitted"
+        >
+          <span *ngIf="loginForm.valid">✓</span>
+          Login
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-secondary"
+          (click)="resetForm()"
+        >
+          Reset
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-outline"
+          (click)="markAllAsTouched()"
+        >
+          Show All Errors
+        </button>
+      </div>
+
+      <!-- Overall Form State -->
+      <div class="form-state">
+        <h4>Form State (FormGroup)</h4>
+        <div class="state-grid">
+          <div class="state-item">
+            <strong>Valid:</strong>
+            <span [class.text-success]="loginForm.valid" [class.text-danger]="loginForm.invalid">
+              {{ loginForm.valid ? 'Yes ✓' : 'No ✗' }}
+            </span>
+          </div>
+          <div class="state-item">
+            <strong>Invalid:</strong>
+            <span [class.text-danger]="loginForm.invalid">
+              {{ loginForm.invalid ? 'Yes' : 'No' }}
+            </span>
+          </div>
+          <div class="state-item">
+            <strong>Touched:</strong>
+            <span>{{ loginForm.touched ? 'Yes' : 'No' }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Untouched:</strong>
+            <span>{{ loginForm.untouched ? 'Yes' : 'No' }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Dirty:</strong>
+            <span>{{ loginForm.dirty ? 'Yes' : 'No' }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Pristine:</strong>
+            <span>{{ loginForm.pristine ? 'Yes' : 'No' }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Status:</strong>
+            <span>{{ loginForm.status }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Submitted:</strong>
+            <span>{{ submitted ? 'Yes' : 'No' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Form Value -->
+      <div class="debug-panel">
+        <h4>Current Form Value</h4>
+        <pre>{{ loginForm.value | json }}</pre>
+      </div>
+
+      <!-- Form Errors -->
+      <div class="debug-panel" *ngIf="loginForm.invalid">
+        <h4>Form Errors</h4>
+        <div *ngFor="let controlName of ['username', 'password']">
+          <div *ngIf="f[controlName].errors">
+            <strong>{{ controlName }} errors:</strong>
+            <pre>{{ f[controlName].errors | json }}</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Control Methods Demo -->
+      <div class="debug-panel">
+        <h4>FormControl Methods</h4>
+        <div class="method-grid">
+          <button type="button" class="btn-small" (click)="f['username'].markAsTouched()">
+            Mark Username Touched
+          </button>
+          <button type="button" class="btn-small" (click)="f['username'].markAsUntouched()">
+            Mark Username Untouched
+          </button>
+          <button type="button" class="btn-small" (click)="f['username'].markAsDirty()">
+            Mark Username Dirty
+          </button>
+          <button type="button" class="btn-small" (click)="f['username'].markAsPristine()">
+            Mark Username Pristine
+          </button>
+          <button type="button" class="btn-small" (click)="f['username'].setValue('admin')">
+            Set Username = 'admin'
+          </button>
+          <button type="button" class="btn-small" (click)="f['username'].patchValue('user')">
+            Patch Username = 'user'
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" *ngIf="loginSuccess">
+      <div class="success-icon">✓</div>
+      <h3>Login Successful!</h3>
+      <p>Welcome back!</p>
+      
+      <div class="submitted-data">
+        <h4>Login Data:</h4>
+        <div class="data-item">
+          <strong>Username:</strong> {{ loginData?.username }}
+        </div>
+        <div class="data-item">
+          <strong>Remember Me:</strong> {{ loginData?.rememberMe ? 'Yes' : 'No' }}
+        </div>
+      </div>
+
+      <button 
+        type="button" 
+        class="btn btn-primary"
+        (click)="resetForm()"
+      >
+        Login Again
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Key Concepts Panel -->
+  <div class="concepts-panel">
+    <h3>🎯 Key Concepts</h3>
+    
+    <div class="concept">
+      <h4>1. FormBuilder Service</h4>
+      <code>this.fb.group(...)</code>
+      <p>Concise API to create FormGroup with controls and validators</p>
+    </div>
+
+    <div class="concept">
+      <h4>2. FormGroup</h4>
+      <code>[formGroup]="loginForm"</code>
+      <p>Container for form controls, tracks collective value and validity</p>
+    </div>
+
+    <div class="concept">
+      <h4>3. FormControl</h4>
+      <code>formControlName="username"</code>
+      <p>Binds input to FormControl instance in FormGroup</p>
+    </div>
+
+    <div class="concept">
+      <h4>4. Validators Class</h4>
+      <code>Validators.required, Validators.minLength(6)</code>
+      <p>Built-in validators defined in code, not HTML attributes</p>
+    </div>
+
+    <div class="concept">
+      <h4>5. Getter for Controls</h4>
+      <code>get f()</code>
+      <p>Shorthand to access controls: f.username instead of loginForm.controls.username</p>
+    </div>
+
+    <div class="concept">
+      <h4>6. Programmatic Control</h4>
+      <ul>
+        <li><code>.setValue()</code> - Set entire form value</li>
+        <li><code>.patchValue()</code> - Set partial form value</li>
+        <li><code>.reset()</code> - Reset to initial state</li>
+        <li><code>.markAsTouched()</code> - Mark as touched</li>
+        <li><code>.markAsDirty()</code> - Mark as dirty</li>
+      </ul>
+    </div>
+
+    <div class="concept">
+      <h4>7. Reactive vs Template-Driven</h4>
+      <ul>
+        <li><strong>Setup:</strong> ReactiveFormsModule vs FormsModule</li>
+        <li><strong>Logic:</strong> Component (TS) vs Template (HTML)</li>
+        <li><strong>Binding:</strong> formControlName vs [(ngModel)]</li>
+        <li><strong>Validation:</strong> Validators class vs HTML attributes</li>
+        <li><strong>Testing:</strong> Easier (no DOM) vs Harder (need DOM)</li>
+      </ul>
+    </div>
+
+    <div class="concept">
+      <h4>8. Form State Properties</h4>
+      <ul>
+        <li><strong>value:</strong> Current form values as object</li>
+        <li><strong>valid/invalid:</strong> Validation status</li>
+        <li><strong>touched/untouched:</strong> User interacted?</li>
+        <li><strong>dirty/pristine:</strong> Value changed?</li>
+        <li><strong>status:</strong> 'VALID', 'INVALID', 'PENDING', 'DISABLED'</li>
+      </ul>
+    </div>
+  </div>
+</div>

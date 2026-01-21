@@ -1,0 +1,253 @@
+<div class="container">
+  <div class="form-card">
+    <h2>Registration Form</h2>
+    <p class="subtitle">Template-Driven Forms với ngModel</p>
+
+    <!-- Registration Form -->
+    <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)" *ngIf="!submitted">
+      
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">
+          Full Name <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-control"
+          [(ngModel)]="user.name"
+          #name="ngModel"
+          required
+          minlength="3"
+          placeholder="Enter your full name"
+          [class.is-invalid]="name.invalid && name.touched"
+          [class.is-valid]="name.valid && name.touched"
+        />
+        
+        <!-- Validation Messages for Name -->
+        <div class="validation-messages" *ngIf="name.invalid && name.touched">
+          <small class="error" *ngIf="name.errors?.['required']">
+            ⚠️ Name is required
+          </small>
+          <small class="error" *ngIf="name.errors?.['minlength']">
+            ⚠️ Name must be at least 3 characters (current: {{ name.value?.length || 0 }})
+          </small>
+        </div>
+        
+        <!-- Validation State Info -->
+        <div class="validation-state" *ngIf="name.touched">
+          <small>
+            <strong>State:</strong>
+            <span [class.text-success]="name.valid" [class.text-danger]="name.invalid">
+              {{ name.valid ? '✓ Valid' : '✗ Invalid' }}
+            </span>
+            |
+            <strong>Touched:</strong> {{ name.touched ? 'Yes' : 'No' }}
+            |
+            <strong>Dirty:</strong> {{ name.dirty ? 'Yes' : 'No' }}
+            |
+            <strong>Pristine:</strong> {{ name.pristine ? 'Yes' : 'No' }}
+          </small>
+        </div>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">
+          Email Address <span class="required">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          [(ngModel)]="user.email"
+          #email="ngModel"
+          required
+          email
+          placeholder="your.email@example.com"
+          [class.is-invalid]="email.invalid && email.touched"
+          [class.is-valid]="email.valid && email.touched"
+        />
+        
+        <!-- Validation Messages for Email -->
+        <div class="validation-messages" *ngIf="email.invalid && email.touched">
+          <small class="error" *ngIf="email.errors?.['required']">
+            ⚠️ Email is required
+          </small>
+          <small class="error" *ngIf="email.errors?.['email']">
+            ⚠️ Please enter a valid email address
+          </small>
+        </div>
+        
+        <!-- Validation State Info -->
+        <div class="validation-state" *ngIf="email.touched">
+          <small>
+            <strong>State:</strong>
+            <span [class.text-success]="email.valid" [class.text-danger]="email.invalid">
+              {{ email.valid ? '✓ Valid' : '✗ Invalid' }}
+            </span>
+            |
+            <strong>Touched:</strong> {{ email.touched ? 'Yes' : 'No' }}
+            |
+            <strong>Dirty:</strong> {{ email.dirty ? 'Yes' : 'No' }}
+            |
+            <strong>Pristine:</strong> {{ email.pristine ? 'Yes' : 'No' }}
+          </small>
+        </div>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button 
+          type="submit" 
+          class="btn btn-primary"
+          [disabled]="registrationForm.invalid"
+        >
+          <span *ngIf="registrationForm.valid">✓</span>
+          Register
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-secondary"
+          (click)="resetForm(registrationForm)"
+        >
+          Reset
+        </button>
+      </div>
+
+      <!-- Overall Form State -->
+      <div class="form-state">
+        <h4>Form State (NgForm)</h4>
+        <div class="state-grid">
+          <div class="state-item">
+            <strong>Valid:</strong>
+            <span [class.text-success]="registrationForm.valid" [class.text-danger]="registrationForm.invalid">
+              {{ registrationForm.valid ? 'Yes ✓' : 'No ✗' }}
+            </span>
+          </div>
+          <div class="state-item">
+            <strong>Invalid:</strong>
+            <span [class.text-danger]="registrationForm.invalid">
+              {{ registrationForm.invalid ? 'Yes' : 'No' }}
+            </span>
+          </div>
+          <div class="state-item">
+            <strong>Touched:</strong>
+            <span>{{ registrationForm.touched ? 'Yes' : 'No' }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Untouched:</strong>
+            <span>{{ registrationForm.untouched ? 'Yes' : 'No' }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Dirty:</strong>
+            <span>{{ registrationForm.dirty ? 'Yes' : 'No' }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Pristine:</strong>
+            <span>{{ registrationForm.pristine ? 'Yes' : 'No' }}</span>
+          </div>
+          <div class="state-item">
+            <strong>Submitted:</strong>
+            <span>{{ registrationForm.submitted ? 'Yes' : 'No' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Form Value -->
+      <div class="debug-panel">
+        <h4>Current Form Value</h4>
+        <pre>{{ registrationForm.value | json }}</pre>
+      </div>
+
+      <!-- Field Errors -->
+      <div class="debug-panel" *ngIf="registrationForm.invalid">
+        <h4>Form Errors</h4>
+        <div *ngIf="name.errors">
+          <strong>Name errors:</strong>
+          <pre>{{ name.errors | json }}</pre>
+        </div>
+        <div *ngIf="email.errors">
+          <strong>Email errors:</strong>
+          <pre>{{ email.errors | json }}</pre>
+        </div>
+      </div>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" *ngIf="submitted">
+      <div class="success-icon">✓</div>
+      <h3>Registration Successful!</h3>
+      <p>Thank you for registering with us.</p>
+      
+      <div class="submitted-data">
+        <h4>Submitted Data:</h4>
+        <div class="data-item">
+          <strong>Name:</strong> {{ submittedData?.name }}
+        </div>
+        <div class="data-item">
+          <strong>Email:</strong> {{ submittedData?.email }}
+        </div>
+      </div>
+
+      <button 
+        type="button" 
+        class="btn btn-primary"
+        (click)="submitted = false"
+      >
+        Register Another User
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Key Concepts Panel -->
+  <div class="concepts-panel">
+    <h3>🎯 Key Concepts</h3>
+    
+    <div class="concept">
+      <h4>1. ngModel Two-Way Binding</h4>
+      <code>[(ngModel)]="user.name"</code>
+      <p>Binds input value to component property bidirectionally</p>
+    </div>
+
+    <div class="concept">
+      <h4>2. Template Reference Variables</h4>
+      <code>#name="ngModel"</code>
+      <p>Creates reference to access ngModel directive properties</p>
+    </div>
+
+    <div class="concept">
+      <h4>3. Validation States</h4>
+      <ul>
+        <li><strong>valid/invalid:</strong> Validation status</li>
+        <li><strong>touched:</strong> User interacted with field</li>
+        <li><strong>dirty:</strong> Value was changed</li>
+        <li><strong>pristine:</strong> Value unchanged since init</li>
+      </ul>
+    </div>
+
+    <div class="concept">
+      <h4>4. Built-in Validators</h4>
+      <ul>
+        <li><code>required</code> - Field cannot be empty</li>
+        <li><code>email</code> - Must be valid email format</li>
+        <li><code>minlength="3"</code> - Minimum length validation</li>
+      </ul>
+    </div>
+
+    <div class="concept">
+      <h4>5. NgForm</h4>
+      <code>#registrationForm="ngForm"</code>
+      <p>Access entire form state, values, and methods</p>
+    </div>
+
+    <div class="concept">
+      <h4>6. Conditional Classes</h4>
+      <code>[class.is-invalid]="name.invalid && name.touched"</code>
+      <p>Apply classes based on validation state</p>
+    </div>
+  </div>
+</div>

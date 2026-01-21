@@ -1,0 +1,14 @@
+<p>product-card works!</p>
+<h1>Product name: {{ productName }}</h1>
+<h1>Price: {{ price | currency:'VND' }}</h1>
+<h1>Description: {{ description }}</h1>
+<h1>Image URL: {{ imageUrl }}</h1>
+<img [src]="imageUrl" style="width: 300px; height: 200px;" alt="{{ productName }}">
+<h1>In Stock: {{ inStock }} | {{ inStock ? 'Available' : 'Out of Stock' }}</h1>
+<button (click)="addToCart()" [disabled]="!inStock">{{ inStock ? 'Add to Cart' : 'Out of Stock' }}</button>
+<button (click)="removeFromCart()" [disabled]="quantity === 0">Remove from Cart</button>
+<button (click)="resetCart()">Reset</button>
+<h1>Quantity: </h1> <input type="text" (input)="updateQuantity($event)" [value]="quantity">
+<h1>Quantity: {{ quantity }}</h1>
+<h1>Rating: {{ rating }} / 5 stars</h1>
+<h1>Sum: {{ formatPrice(price * quantity) }}</h1>

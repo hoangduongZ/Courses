@@ -1,0 +1,223 @@
+<div class="transaction-container">
+  <header class="header">
+    <h1>Transaction List - Pipes Demo</h1>
+    <p class="subtitle">Built-in Pipes + Custom Phone Format Pipe</p>
+  </header>
+
+  <!-- Summary Cards -->
+  <section class="summary-section">
+    <div class="summary-card income">
+      <div class="card-icon">💰</div>
+      <div class="card-content">
+        <h3>Total Income</h3>
+        <!-- currency pipe: amount | currency:'VND':'symbol-narrow':'1.0-0' -->
+        <p class="amount">{{ getTotalByType('income') | currency:'VND':'symbol-narrow':'1.0-0' }}</p>
+        <span class="count">{{ getCountByType('income') }} transactions</span>
+      </div>
+    </div>
+
+    <div class="summary-card expense">
+      <div class="card-icon">💸</div>
+      <div class="card-content">
+        <h3>Total Expense</h3>
+        <p class="amount">{{ getTotalByType('expense') | currency:'VND':'symbol-narrow':'1.0-0' }}</p>
+        <span class="count">{{ getCountByType('expense') }} transactions</span>
+      </div>
+    </div>
+
+    <div class="summary-card transfer">
+      <div class="card-icon">🔄</div>
+      <div class="card-content">
+        <h3>Total Transfer</h3>
+        <p class="amount">{{ getTotalByType('transfer') | currency:'VND':'symbol-narrow':'1.0-0' }}</p>
+        <span class="count">{{ getCountByType('transfer') }} transactions</span>
+      </div>
+    </div>
+
+    <div class="summary-card balance" [class.positive]="balance > 0" [class.negative]="balance < 0">
+      <div class="card-icon">📊</div>
+      <div class="card-content">
+        <h3>Balance</h3>
+        <p class="amount">{{ balance | currency:'VND':'symbol-narrow':'1.0-0' }}</p>
+        <span class="count">Income - Expense</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters and Controls -->
+  <section class="filters-section">
+    <div class="filter-group">
+      <label for="search">🔍 Search:</label>
+      <input 
+        type="text" 
+        id="search"
+        [(ngModel)]="searchTerm" 
+        placeholder="Description, name, or phone..."
+        class="search-input">
+    </div>
+
+    <div class="filter-group">
+      <label for="typeFilter">🏷️ Type:</label>
+      <select id="typeFilter" [(ngModel)]="selectedType" class="filter-select">
+        <option value="all">All ({{ getCountByType('all') }})</option>
+        <option value="income">Income ({{ getCountByType('income') }})</option>
+        <option value="expense">Expense ({{ getCountByType('expense') }})</option>
+        <option value="transfer">Transfer ({{ getCountByType('transfer') }})</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>📅 Sort:</label>
+      <button 
+        class="sort-btn" 
+        [class.active]="sortBy === 'date'"
+        (click)="toggleSort('date')">
+        Date {{ getSortIcon('date') }}
+      </button>
+      <button 
+        class="sort-btn" 
+        [class.active]="sortBy === 'amount'"
+        (click)="toggleSort('amount')">
+        Amount {{ getSortIcon('amount') }}
+      </button>
+    </div>
+  </section>
+
+  <!-- Transaction List -->
+  <section class="transactions-section">
+    <h2>Transactions ({{ filteredTransactions.length }})</h2>
+    
+    <div class="transaction-list" *ngIf="filteredTransactions.length > 0; else noTransactions">
+      <div 
+        class="transaction-card" 
+        *ngFor="let transaction of filteredTransactions"
+        [ngClass]="getTypeClass(transaction.type)">
+        
+        <div class="transaction-header">
+          <div class="transaction-id">
+            <!-- uppercase pipe -->
+            <span class="label">ID:</span>
+            <span class="value">{{ transaction.type | uppercase }}-{{ transaction.id }}</span>
+          </div>
+          <div class="transaction-type" [ngClass]="'badge-' + transaction.type">
+            <!-- uppercase pipe -->
+            {{ transaction.type | uppercase }}
+          </div>
+        </div>
+
+        <div class="transaction-body">
+          <div class="transaction-info">
+            <h3 class="description">{{ transaction.description }}</h3>
+            
+            <div class="info-row">
+              <span class="label">Recipient:</span>
+              <!-- titlecase pipe (first letter of each word uppercase) -->
+              <span class="value">{{ transaction.recipientName }}</span>
+            </div>
+
+            <div class="info-row">
+              <span class="label">Phone:</span>
+              <!-- CUSTOM PIPE: phoneFormat -->
+              <span class="value phone">{{ transaction.phoneNumber | phoneFormat }}</span>
+            </div>
+
+            <div class="info-row">
+              <span class="label">Date:</span>
+              <!-- date pipe with custom format + chaining with uppercase -->
+              <span class="value">{{ transaction.date | date:'dd/MM/yyyy HH:mm' }}</span>
+            </div>
+
+            <div class="info-row">
+              <span class="label">Day:</span>
+              <!-- date pipe: full day name -->
+              <span class="value">{{ transaction.date | date:'EEEE' }}</span>
+            </div>
+          </div>
+
+          <div class="transaction-amount">
+            <div class="amount-label">Amount</div>
+            <!-- currency pipe: VND with symbol, no decimals -->
+            <div class="amount-value">
+              {{ transaction.amount | currency:'VND':'symbol-narrow':'1.0-0' }}
+            </div>
+            <!-- number pipe: with thousands separator -->
+            <div class="amount-number">
+              {{ transaction.amount | number:'1.0-0' }} VND
+            </div>
+          </div>
+        </div>
+
+        <!-- Pipe Chaining Example -->
+        <div class="transaction-footer">
+          <small>
+            <!-- PIPE CHAINING: date | uppercase -->
+            Created: {{ transaction.date | date:'short' | uppercase }}
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noTransactions>
+      <div class="no-data">
+        <p>📭 No transactions found</p>
+        <small>Try adjusting your filters</small>
+      </div>
+    </ng-template>
+  </section>
+
+  <!-- Pipes Reference Section -->
+  <section class="pipes-reference">
+    <h2>🔧 Pipes Used in This Demo</h2>
+    
+    <div class="pipes-grid">
+      <div class="pipe-card">
+        <h3>💵 currency</h3>
+        <code>{{ 1500000 | currency:'VND':'symbol-narrow':'1.0-0' }}</code>
+        <p>Format numbers as currency with locale</p>
+        <small>Syntax: value | currency:'code':'display':'digitsInfo'</small>
+      </div>
+
+      <div class="pipe-card">
+        <h3>📅 date</h3>
+        <code>{{ transactions[0].date | date:'dd/MM/yyyy HH:mm' }}</code>
+        <p>Format dates with custom patterns</p>
+        <small>Syntax: value | date:'format':'timezone':'locale'</small>
+      </div>
+
+      <div class="pipe-card">
+        <h3>🔢 number</h3>
+        <code>{{ 1500000 | number:'1.0-0' }}</code>
+        <p>Format numbers with thousands separator</p>
+        <small>Syntax: value | number:'minInt.minFrac-maxFrac'</small>
+      </div>
+
+      <div class="pipe-card">
+        <h3>🔠 uppercase</h3>
+        <code>{{ 'income' | uppercase }}</code>
+        <p>Transform text to UPPERCASE</p>
+        <small>Syntax: value | uppercase</small>
+      </div>
+
+      <div class="pipe-card">
+        <h3>🔡 lowercase</h3>
+        <code>{{ 'EXPENSE' | lowercase }}</code>
+        <p>Transform text to lowercase</p>
+        <small>Syntax: value | lowercase</small>
+      </div>
+
+      <div class="pipe-card custom">
+        <h3>📱 phoneFormat (Custom)</h3>
+        <code>{{ '0901234567' | phoneFormat }}</code>
+        <p>Format phone: 090 123 4567</p>
+        <small>Custom pipe implementing PipeTransform</small>
+      </div>
+
+      <div class="pipe-card chaining">
+        <h3>⛓️ Pipe Chaining</h3>
+        <code>{{ transactions[0].date | date:'short' | uppercase }}</code>
+        <p>Combine multiple pipes</p>
+        <small>Left to right execution</small>
+      </div>
+    </div>
+  </section>
+</div>

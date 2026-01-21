@@ -1,0 +1,51 @@
+<div class="counter-container">
+  <h3 class="counter-title">{{ counterTitle }}</h3>
+  
+  <!-- Counter Display -->
+  <div class="counter-display">
+    <span class="counter-value">{{ currentValue }}</span>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+  </div>
+  <div class="progress-info">
+    <span>Min: {{ min }}</span>
+    <span>Max: {{ max }}</span>
+  </div>
+
+  <!-- Control Buttons -->
+  <div class="button-group">
+    <button 
+      class="btn btn-decrement" 
+      (click)="decrement()"
+      [disabled]="isAtMin"
+      [class.disabled]="isAtMin">
+      - {{ step }}
+    </button>
+    
+    <button 
+      class="btn btn-reset" 
+      (click)="resetCounter()">
+      Reset
+    </button>
+    
+    <button 
+      class="btn btn-increment" 
+      (click)="increment()"
+      [disabled]="isAtMax"
+      [class.disabled]="isAtMax">
+      + {{ step }}
+    </button>
+  </div>
+
+  <!-- Status Messages -->
+  <div class="status-message">
+    <p *ngIf="isAtMin" class="message warning">⚠️ Minimum value reached!</p>
+    <p *ngIf="isAtMax" class="message warning">⚠️ Maximum value reached!</p>
+    <p *ngIf="currentValue === initialValue && !isAtMin && !isAtMax" class="message info">
+      ℹ️ Counter at initial value
+    </p>
+  </div>
+</div>

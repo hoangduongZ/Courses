@@ -1,0 +1,249 @@
+<!-- Task 1.2: Directives - Product List with Filter -->
+<div class="product-list-container">
+  
+  <!-- Header Section -->
+  <div class="header">
+    <h1>🛍️ Product List - Directives Demo</h1>
+    <p class="subtitle">Học về *ngIf, *ngFor, [ngClass], [ngStyle], và [(ngModel)]</p>
+  </div>
+
+  <!-- Filter Controls Section -->
+  <div class="filter-section">
+    <h2>🔍 Filters & Controls</h2>
+    
+    <!-- Search Input - Two-way binding với [(ngModel)] -->
+    <div class="filter-group">
+      <label for="search">🔎 Tìm kiếm sản phẩm:</label>
+      <input 
+        type="text" 
+        id="search"
+        [(ngModel)]="searchTerm"
+        placeholder="Nhập tên sản phẩm..."
+        class="input-control"
+      >
+      <!-- *ngIf: Hiển thị text khi có search term -->
+      <small *ngIf="searchTerm" class="hint">
+        Đang tìm: "{{ searchTerm }}"
+      </small>
+    </div>
+
+    <!-- Category Select - Two-way binding -->
+    <div class="filter-group">
+      <label for="category">📂 Danh mục:</label>
+      <select 
+        id="category"
+        [(ngModel)]="selectedCategory"
+        class="input-control"
+      >
+        <!-- *ngFor: Loop qua categories -->
+        <option *ngFor="let cat of categories" [value]="cat">
+          {{ cat === 'all' ? 'Tất cả' : cat }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Stock Checkbox - Two-way binding -->
+    <div class="filter-group checkbox-group">
+      <label>
+        <input 
+          type="checkbox"
+          [(ngModel)]="showOutOfStock"
+        >
+        Hiển thị sản phẩm hết hàng
+      </label>
+    </div>
+
+    <!-- Price Range - Two-way binding -->
+    <div class="filter-group">
+      <label>💰 Khoảng giá:</label>
+      <div class="price-range">
+        <input 
+          type="number" 
+          [(ngModel)]="minPrice"
+          placeholder="Từ"
+          class="input-small"
+        >
+        <span>-</span>
+        <input 
+          type="number" 
+          [(ngModel)]="maxPrice"
+          placeholder="Đến"
+          class="input-small"
+        >
+      </div>
+    </div>
+
+    <!-- Sort Select -->
+    <div class="filter-group">
+      <label for="sort">📊 Sắp xếp:</label>
+      <select 
+        id="sort"
+        [(ngModel)]="sortBy"
+        class="input-control"
+      >
+        <option value="name">Theo tên</option>
+        <option value="price">Theo giá</option>
+        <option value="discount">Theo giảm giá</option>
+      </select>
+    </div>
+
+    <!-- View Mode Toggle -->
+    <div class="filter-group">
+      <button (click)="toggleViewMode()" class="btn-toggle">
+        {{ viewMode === 'grid' ? '📋 Xem dạng List' : '🔲 Xem dạng Grid' }}
+      </button>
+      <button (click)="resetFilters()" class="btn-reset">
+        🔄 Reset Filters
+      </button>
+    </div>
+  </div>
+
+  <!-- Results Info -->
+  <div class="results-info">
+    <!-- *ngIf với else template -->
+    <p *ngIf="filteredProducts.length > 0; else noResults">
+      Hiển thị <strong>{{ filteredProducts.length }}</strong> sản phẩm
+      (trong tổng số <strong>{{ products.length }}</strong>)
+    </p>
+    <ng-template #noResults>
+      <p class="no-results">❌ Không tìm thấy sản phẩm nào</p>
+    </ng-template>
+  </div>
+
+  <!-- Product Grid/List - Dynamic class với [ngClass] -->
+  <div 
+    class="products-container"
+    [ngClass]="{
+      'view-grid': viewMode === 'grid',
+      'view-list': viewMode === 'list'
+    }"
+  >
+    <!-- *ngFor: Loop qua filtered products -->
+    <div 
+      *ngFor="let product of filteredProducts; let i = index; let isFirst = first; let isLast = last; let isEven = even"
+      class="product-card"
+      [ngClass]="{
+        'card-out-of-stock': !product.inStock,
+        'card-first': isFirst,
+        'card-even': isEven
+      }"
+    >
+      <!-- Product Image Icon -->
+      <div class="product-icon">{{ product.image }}</div>
+
+      <!-- Discount Badge - *ngIf: Chỉ hiện khi có discount -->
+      <div 
+        *ngIf="product.discount > 0" 
+        class="discount-badge"
+        [ngClass]="getDiscountClass(product.discount)"
+      >
+        -{{ product.discount }}%
+      </div>
+
+      <!-- Out of Stock Badge - *ngIf -->
+      <div *ngIf="!product.inStock" class="stock-badge out-of-stock">
+        Hết hàng
+      </div>
+      <div *ngIf="product.inStock" class="stock-badge in-stock">
+        Còn hàng
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-category">{{ product.category }}</p>
+
+        <!-- Price Section -->
+        <div class="price-section">
+          <!-- Original price - *ngIf: Chỉ hiện khi có discount -->
+          <span 
+            *ngIf="product.discount > 0" 
+            class="price-original"
+          >
+            {{ product.price | number:'1.0-0' }}đ
+          </span>
+
+          <!-- Final price với dynamic style [ngStyle] -->
+          <span 
+            class="price-final"
+            [ngStyle]="{
+              'color': getPriceColor(product.inStock),
+              'font-size': product.discount > 10 ? '1.5rem' : '1.3rem',
+              'font-weight': product.discount > 0 ? 'bold' : 'normal'
+            }"
+          >
+            {{ getFinalPrice(product) | number:'1.0-0' }}đ
+          </span>
+        </div>
+
+        <!-- Action Button - Disabled nếu hết hàng -->
+        <button 
+          class="btn-add-cart"
+          [disabled]="!product.inStock"
+          [ngClass]="{
+            'btn-disabled': !product.inStock,
+            'btn-enabled': product.inStock
+          }"
+        >
+          {{ product.inStock ? '🛒 Thêm vào giỏ' : '❌ Hết hàng' }}
+        </button>
+      </div>
+
+      <!-- Product Index for demo -->
+      <div class="product-index">
+        #{{ i + 1 }}
+        <span *ngIf="isFirst" class="label-first">First</span>
+        <span *ngIf="isLast" class="label-last">Last</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Directives Demo Section -->
+  <div class="demo-section">
+    <h2>🎯 Directives Demo trong Task 1.2</h2>
+    
+    <div class="demo-grid">
+      <!-- *ngIf Demo -->
+      <div class="demo-card">
+        <h3>*ngIf - Conditional Rendering</h3>
+        <code>&lt;div *ngIf="condition"&gt;Content&lt;/div&gt;</code>
+        <p>✅ Hiển thị discount badge chỉ khi có discount > 0</p>
+        <p>✅ Hiển thị "Hết hàng" badge khi !inStock</p>
+      </div>
+
+      <!-- *ngFor Demo -->
+      <div class="demo-card">
+        <h3>*ngFor - Loop Data</h3>
+        <code>&lt;div *ngFor="let item of items; let i = index"&gt;</code>
+        <p>✅ Loop qua filteredProducts array</p>
+        <p>✅ Sử dụng: index, first, last, even</p>
+      </div>
+
+      <!-- [ngClass] Demo -->
+      <div class="demo-card">
+        <h3>[ngClass] - Dynamic Classes</h3>
+        <code>[ngClass]="{{ '{' }}'class-name': condition{{ '}' }}"</code>
+        <p>✅ card-out-of-stock khi !inStock</p>
+        <p>✅ view-grid / view-list cho layout</p>
+      </div>
+
+      <!-- [ngStyle] Demo -->
+      <div class="demo-card">
+        <h3>[ngStyle] - Dynamic Styles</h3>
+        <code>[ngStyle]="{{ '{' }}'color': getColor(){{ '}' }}"</code>
+        <p>✅ Màu giá: xanh (còn hàng) / xám (hết hàng)</p>
+        <p>✅ Font size thay đổi theo discount</p>
+      </div>
+
+      <!-- [(ngModel)] Demo -->
+      <div class="demo-card">
+        <h3>[(ngModel)] - Two-way Binding</h3>
+        <code>&lt;input [(ngModel)]="property"&gt;</code>
+        <p>✅ Search input: searchTerm</p>
+        <p>✅ Category select: selectedCategory</p>
+        <p>✅ Checkbox: showOutOfStock</p>
+      </div>
+    </div>
+  </div>
+
+</div>
