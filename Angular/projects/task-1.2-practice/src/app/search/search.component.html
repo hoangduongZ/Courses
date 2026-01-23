@@ -1,0 +1,61 @@
+<div>
+    <h2>Search Component</h2>
+
+    <div class="search-section">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." />
+        <select [(ngModel)]="filterStatus">
+            <option value="all">All Status</option>
+            <option value="true">Completed</option>
+            <option value="false">Pending</option>
+        </select>
+        <select [(ngModel)]="filterPriority">
+            <option value="all">All Priority</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
+    </div>
+
+    <div>
+        <h3>Search result</h3>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">{{ totalTodos }}</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ completedCount }}</span>
+                <span class="stat-label">Completed</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ activeCount }}</span>
+                <span class="stat-label">Active</span>
+            </div> 
+        </div>
+
+        <div *ngIf="filteredTodos.length === 0" class="empty-state">
+            <p>No todos found matching your filters.</p>
+        </div>
+
+        <div *ngFor="let todo of filteredTodos; let i = index; trackBy: trackById" class="todo-card">
+            <div class="card-header">
+                {{ i + 1 }}.
+                <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo)" />
+                <div [ngClass]="todo.completed ? 'completed' : 'pending'"></div>
+                <div class="todo-title" [ngClass]="{ 'completed-text': todo.completed }">
+                    {{ todo.title }}
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="todo-status">
+                    <div *ngIf="todo.completed" class="status-badge completed-badge">Completed</div>
+                    <div *ngIf="!todo.completed" class="status-badge pending-badge">Pending</div>
+                </div>
+                <div [ngClass]="'priority-' + todo.priority" class="todo-priority">
+                    Priority: <span class="priority-value">{{ todo.priority }}</span>
+                </div>
+                <div class="todo-date">Due: {{ todo.dueDate }}</div>
+            </div>
+        </div>
+    </div>
+</div>
