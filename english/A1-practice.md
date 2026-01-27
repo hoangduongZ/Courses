@@ -3,9 +3,9 @@ they play football every Saturday
 He watches TV in the evening
 My sister studies English every day.
 The shop opens at 9 AM
-Dogs loves bones
+Dogs love bones
 Water freezes at 0C
-I goes to the gym three times a week
+I go to the gym three times a week
 She teaches Math at a local school
 The Earth moves around the Sun
 
@@ -18,10 +18,19 @@ She doesn't know the answer
 practice B
 
 task 1:
-I wash my teeths every morning
+I brush my teeth every morning
 I always wake up at 7 AM
-I start to work at 9 AM
+I start work at 9 AM
 I always have breakfast at 7.30AM
-I often goes to bed at 11PM
+I often go to bed at 11PM
 
-task
+task 2:
+My friend usually plays game at night
+She always loves with true love
+He often hangs out with his friends on the weekends
+My brother works in an IT company
+
+task 3:
+The bus arrives at 7:30pm
+My company closes at 17:30
+The meeting starts at 9 AM
