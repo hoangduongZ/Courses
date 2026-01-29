@@ -26,7 +26,7 @@ Giúp bạn **diễn tả thói quen, sự thật, và lịch trình** một cá
 
 ## Rule summary
 
-**AFFIRMATIVE:**
+**AFFIRMATIVE:** /əˈfɜːmətɪv/
 - I/You/We/They + V1
 - He/She/It + V-s/es
 
