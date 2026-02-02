@@ -81,6 +81,11 @@ A (Tenses) → C (Pronouns + S-V Agreement) → B (Nouns/Articles) → D (Verb p
 
 # MODULE C – PRONOUNS + SUBJECT–VERB AGREEMENT (LỖI NEWBIE HAY DÍNH)
 
+## C0 – Subject–Verb Agreement (TASK RIÊNG, BẮT BUỘC)
+**Mục đích:** hết lỗi He go / They goes / People is…  
+**Key points:** he/she/it + V-s/es; plural noun → V1; uncountable → singular verb  
+**Output:** 30 câu chọn đúng verb form ≥85%
+
 ## C1 – Pronouns (I/me/my/mine; he/him/his…)
 **Mục đích:** không nhầm chủ ngữ/tân ngữ/sở hữu  
 **Key points:** subject vs object vs possessive adj vs possessive pronoun  
@@ -90,11 +95,6 @@ A (Tenses) → C (Pronouns + S-V Agreement) → B (Nouns/Articles) → D (Verb p
 **Mục đích:** nói/viết chỉ định đúng  
 **Key points:** near/far; singular/plural; a/an/the đi kèm  
 **Output:** 15 câu mô tả đồ vật/tình huống
-
-## C0 – Subject–Verb Agreement (TASK RIÊNG, BẮT BUỘC)
-**Mục đích:** hết lỗi He go / They goes / People is…  
-**Key points:** he/she/it + V-s/es; plural noun → V1; uncountable → singular verb  
-**Output:** 30 câu chọn đúng verb form ≥85%
 
 ---
 
