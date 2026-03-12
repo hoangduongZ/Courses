@@ -70,48 +70,65 @@ $CATALINA_HOME/bin/startup.sh   # Tomcat sẽ đọc conf từ CATALINA_BASE
 Apache có tham số `ServerRoot` trong `httpd.conf` — đây là **thư mục gốc** mà Apache dùng làm điểm tham chiếu cho tất cả đường dẫn tương đối bên trong cấu hình.
 
 ```
-/usr2/apache2.4/         ← Apache gốc (binary, lib — không sửa)
-  ├── bin/
-  └── lib/
+/usr2/apache2.4/         ← Apache gốc (không sửa)
+  ├── apachectl           ← Script điều khiển start/stop/restart Apache
+  ├── conf/               ← Cấu hình gốc (không sửa trực tiếp)
+  ├── htdocs/             ← Thư mục web tĩnh mặc định (HTML, CSS...)
+  ├── logs/               ← Log mặc định của Apache gốc
+  └── modules/            ← Các module Apache (.so) — mod_rewrite, mod_ssl...
 
-/usr2/jre/apache/        ← ServerRoot (cấu hình riêng)
+/usr2/jre/apache2/       ← ServerRoot (cấu hình riêng — thoải mái sửa)
   ├── conf/
-  │   └── httpd.conf
+  │   └── httpd.conf      ← Cấu hình riêng, trỏ ServerRoot về đây
   └── logs/
-      ├── error.log
-      └── access.log
+      ├── error.log        ← Log lỗi của instance này
+      └── access.log       ← Log truy cập của instance này
 ```
+
+**Mục đích từng thành phần:**
+
+| Thành phần | Nằm ở | Mục đích |
+|---|---|---|
+| `apachectl` | Apache gốc | Script dùng chung để start/stop/restart, không sửa |
+| `modules/` | Apache gốc | Thư viện module dùng chung, được tham chiếu từ `httpd.conf` riêng |
+| `htdocs/` | Apache gốc | Web tĩnh mặc định, có thể override trong cấu hình riêng |
+| `conf/` | Instance riêng | Cấu hình độc lập, không ảnh hưởng Apache gốc |
+| `logs/` | Instance riêng | Log riêng biệt, dễ theo dõi từng instance |
 
 ### Các bước thực hiện
 
 **Bước 1: Tạo cấu trúc thư mục**
 ```bash
-mkdir -p /usr2/jre/apache/{conf,logs}
+mkdir -p /usr2/jre/apache2/{conf,logs}
 ```
 
 **Bước 2: Tạo/chỉnh sửa `httpd.conf`**
 ```apache
-# /usr2/jre/apache/conf/httpd.conf
+# /usr2/jre/apache2/conf/httpd.conf
 
-ServerRoot "/usr2/jre/apache"
+ServerRoot "/usr2/jre/apache2"
 # Tất cả đường dẫn tương đối bên dưới đều tính từ đây
 
-PidFile    logs/httpd.pid       # → thực tế là /usr2/jre/apache/logs/httpd.pid
-ErrorLog   logs/error.log       # → /usr2/jre/apache/logs/error.log
+PidFile    logs/httpd.pid        # → /usr2/jre/apache2/logs/httpd.pid
+ErrorLog   logs/error.log        # → /usr2/jre/apache2/logs/error.log
 CustomLog  logs/access.log combined
 
 Listen 80
 
-# Tham chiếu đến module của Apache gốc
+# Tham chiếu module từ Apache gốc (không cần copy)
 LoadModule rewrite_module /usr2/apache2.4/modules/mod_rewrite.so
+LoadModule ssl_module     /usr2/apache2.4/modules/mod_ssl.so
 ```
 
 **Bước 3: Khởi động Apache với cấu hình riêng**
 ```bash
-/usr2/apache2.4/bin/httpd -f /usr2/jre/apache/conf/httpd.conf -k start
+# Dùng apachectl của Apache gốc, nhưng chỉ định file cấu hình riêng
+/usr2/apache2.4/apachectl -f /usr2/jre/apache2/conf/httpd.conf -k start
+/usr2/apache2.4/apachectl -f /usr2/jre/apache2/conf/httpd.conf -k stop
+/usr2/apache2.4/apachectl -f /usr2/jre/apache2/conf/httpd.conf -k restart
 ```
 
-> Câu lệnh này nói rõ: *"Dùng binary của Apache gốc, nhưng đọc cấu hình từ thư mục của tôi."*
+> `apachectl` là công cụ dùng chung từ Apache gốc — tham số `-f` chỉ định file `httpd.conf` của instance nào cần khởi động, nhờ đó mỗi instance hoạt động hoàn toàn độc lập.
 
 ---
 
@@ -128,7 +145,7 @@ LoadModule rewrite_module /usr2/apache2.4/modules/mod_rewrite.so
                              │              │
                 ┌────────────▼──────────────▼─────────────┐
                 │         CẤU HÌNH RIÊNG (JRE)            │
-                │  /usr2/jre/tomcat   /usr2/jre/apache     │
+                │  /usr2/jre/tomcat   /usr2/jre/apache2    │
                 │  (thoải mái sửa, xóa, tạo lại)          │
                 └─────────────────────────────────────────┘
 ```
@@ -148,4 +165,4 @@ LoadModule rewrite_module /usr2/apache2.4/modules/mod_rewrite.so
 > **CATALINA_BASE (Tomcat)** và **ServerRoot (Apache)** đều có cùng mục đích:
 > Tách **cấu hình riêng** ra khỏi **phần mềm gốc**, để có thể thoải mái chỉnh sửa cấu hình mà **không ảnh hưởng đến hệ thống chính**.
 
-Phần mềm gốc (`/usr2/tomcat10`, `/usr2/apache2.4`) chỉ được **tham chiếu đến**, không bị sửa đổi. Còn toàn bộ cấu hình, log, app đều nằm gọn trong `/usr2/jre/tomcat` và `/usr2/jre/apache`.
+Phần mềm gốc (`/usr2/tomcat10`, `/usr2/apache2.4`) chỉ được **tham chiếu đến**, không bị sửa đổi. Còn toàn bộ cấu hình, log, app đều nằm gọn trong `/usr2/jre/tomcat` và `/usr2/jre/apache2`.
