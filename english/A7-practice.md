@@ -4,38 +4,68 @@
 
 **Chọn Past Simple hoặc Present Perfect (điền dạng đúng của động từ).**
 
-1. I __________ (finish) my homework already.
-2. I __________ (finish) my homework last night.
-3. __________ you ever __________ (try) Vietnamese coffee?
-4. When __________ you __________ (try) Vietnamese coffee for the first time?
-5. She __________ (not/see) this movie yet.
-6. She __________ (not/see) this movie yesterday.
-7. We __________ (live) here since 2022.
-8. We __________ (live) there in 2022.
-9. They __________ (just/arrive).
-10. They __________ (arrive) 10 minutes ago.
+1. I have finished (finish) my homework already.
+	-> Present Perfect vì có `already`, nhấn mạnh kết quả ở hiện tại.
+2. I finished (finish) my homework last night.
+	-> Past Simple vì có mốc thời gian quá khứ rõ: `last night`.
+3. Have you ever tried (try) Vietnamese coffee?
+	-> Present Perfect với `ever` để hỏi trải nghiệm đến hiện tại.
+4. When did you try (try) Vietnamese coffee for the first time?
+	-> Past Simple vì hỏi thời điểm cụ thể trong quá khứ (`when`).
+5. She has not seen (not/see) this movie yet.
+	-> Present Perfect vì có `yet` (đến bây giờ vẫn chưa). `She` đi với `has`.
+6. She did not see (not/see) this movie yesterday.
+	-> Past Simple vì có `yesterday`; sau `did not` dùng động từ nguyên mẫu `see`.
+7. We have lived (live) here since 2022.
+	-> Present Perfect vì `since 2022` = bắt đầu quá khứ, còn kéo dài tới hiện tại.
+8. We lived (live) there in 2022.
+	-> Past Simple vì `in 2022` là thời gian quá khứ đã kết thúc.
+9. They have just arrived (just/arrive).
+	-> Present Perfect với `just` để nói hành động vừa mới xảy ra.
+10. They arrived (arrive) 10 minutes ago.
+	 -> Past Simple vì có `ago` (mốc thời gian quá khứ).
 
-11. I __________ (lose) my wallet. (I can’t find it now.)
-12. I __________ (lose) my wallet on the bus this morning.
-13. He __________ (be) to Singapore twice.
-14. He __________ (go) to Singapore in 2018.
-15. __________ you __________ (read) the email yet?
-16. Did you __________ (read) the email this morning?
-17. My team __________ (already/solve) the problem.
-18. My team __________ (solve) the problem yesterday.
-19. I __________ (not/meet) her before.
-20. I __________ (meet) her at the party last week.
+11. I have lost (lose) my wallet. (I can’t find it now.)
+	-> Present Perfect vì kết quả còn ở hiện tại: bây giờ tôi vẫn không tìm thấy ví. `Lose` là động từ bất quy tắc: `lose -> lost -> lost`.
+12. I lost (lose) my wallet on the bus this morning.
+	-> Past Simple vì có mốc thời gian quá khứ: `this morning` (ý là buổi sáng đã qua). Dùng `lost`, không dùng `losed`.
+13. He has been (be) to Singapore twice.
+	-> Present Perfect vì nói về kinh nghiệm/trải nghiệm đến hiện tại: anh ấy đã từng đến Singapore 2 lần.
+14. He went (go) to Singapore in 2018.
+	-> Past Simple vì có mốc thời gian cụ thể trong quá khứ: `in 2018`.
+15. Have you read (read) the email yet?
+	-> Present Perfect vì có `yet`, hỏi xem đến bây giờ bạn đã đọc email chưa.
+16. Did you read (read) the email this morning?
+	-> Past Simple vì hỏi về một thời điểm cụ thể trong quá khứ: `this morning`.
+17. My team has already solved (already/solve) the problem.
+	-> Present Perfect vì có `already` và nhấn mạnh kết quả hiện tại: vấn đề bây giờ đã được giải quyết.
+18. My team solved (solve) the problem yesterday.
+	-> Past Simple vì có `yesterday`, là thời gian quá khứ đã kết thúc.
+19. I have not met (not/meet) her before.
+	-> Present Perfect vì `before` ở đây mang nghĩa kinh nghiệm cho đến hiện tại: trước giờ tôi chưa gặp cô ấy.
+20. I met (meet) her at the party last week.
+	-> Past Simple vì có mốc thời gian quá khứ rõ ràng: `last week`.
 
-21. We __________ (have) three tests this week. (so far)
-22. We __________ (have) three tests last week.
-23. He __________ (work) at this company for 5 years.
-24. He __________ (work) at that company for 5 years. (but he doesn’t work there now)
-25. __________ you __________ (ever/forget) your password?
-26. I __________ (forget) my password yesterday.
-27. She __________ (already/send) the message.
-28. She __________ (send) the message an hour ago.
-29. I __________ (never/break) my phone.
-30. I __________ (break) my phone when I was a student.
+21. We have had (have) three tests this week. (so far)
+	-> Present Perfect vì `this week` là khoảng thời gian chưa kết thúc (so far). Cần `have had` vì `have` là động từ bất quy tắc: `have -> had -> had`.
+22. We had (have) three tests last week.
+	-> Past Simple vì `last week` là thời gian quá khứ đã kết thúc.
+23. He has worked (work) at this company for 5 years.
+	-> Present Perfect vì `for 5 years` và anh ấy vẫn còn làm ở đây đến hiện tại.
+24. He worked (work) at that company for 5 years. (but he doesn't work there now)
+	-> Past Simple vì anh ấy đã nghỉ việc rồi — hành động hoàn toàn kết thúc trong quá khứ.
+25. Have you ever forgotten (ever/forget) your password?
+	-> Present Perfect với `ever` để hỏi trải nghiệm đến hiện tại. `Forget` là động từ bất quy tắc: `forget -> forgot -> forgotten`.
+26. I forgot (forget) my password yesterday.
+	-> Past Simple vì có `yesterday` là mốc thời gian quá khứ rõ ràng.
+27. She has already sent (already/send) the message.
+	-> Present Perfect vì có `already`, nhấn mạnh kết quả ở hiện tại. `She` đi với `has`. `Send` là động từ bất quy tắc: `send -> sent -> sent`, không phải `sended`.
+28. She sent (send) the message an hour ago.
+	-> Past Simple vì có `ago` (mốc thời gian quá khứ). Dùng `sent`, không phải `sended`.
+29. I have never broken (never/break) my phone.
+	-> Present Perfect với `never` để nói chưa bao giờ xảy ra đến hiện tại. Typo: `nerver` → `never`.
+30. I broke (break) my phone when I was a student.
+	-> Past Simple vì có `when I was a student`, chỉ thời điểm cụ thể đã kết thúc trong quá khứ.
 
 ---
 
