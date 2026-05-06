@@ -1,0 +1,7 @@
+192.168.1.10 - - [06/May/2026:08:00:01 +0700] "GET /api/users HTTP/1.1" 200 1523 "-" "curl/7.68.0"
+192.168.1.20 - - [06/May/2026:08:00:05 +0700] "POST /api/login HTTP/1.1" 200 88 "-" "Mozilla/5.0"
+10.0.0.5 - - [06/May/2026:08:00:10 +0700] "GET /api/products HTTP/1.1" 200 4200 "-" "Mozilla/5.0"
+45.33.32.156 - - [06/May/2026:08:30:00 +0700] "GET /wp-admin/install.php HTTP/1.1" 404 178 "-" "python-requests/2.25"
+45.33.32.156 - - [06/May/2026:08:30:01 +0700] "GET /.env HTTP/1.1" 404 178 "-" "python-requests/2.25"
+45.33.32.156 - - [06/May/2026:08:30:02 +0700] "GET /config.php HTTP/1.1" 404 178 "-" "python-requests/2.25"
+192.168.1.10 - - [06/May/2026:09:00:00 +0700] "GET /api/orders HTTP/1.1" 500 234 "-" "curl/7.68.0"
