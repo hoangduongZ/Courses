@@ -1,0 +1,5 @@
+May  6 07:59:50 webserver kernel: [     0.000000] Booting Linux on physical CPU 0x0
+May  6 07:59:50 webserver kernel: [     0.000000] Linux version 5.15.0-91-generic
+May  6 08:00:01 webserver kernel: [  1234.567] eth0: Link is Up - 1Gbps/Full
+May  6 08:45:00 webserver kernel: [  5400.123] Out of memory: Killed process 9876 (java) total-vm:2048000kB
+May  6 08:45:01 webserver kernel: [  5401.000] EXT4-fs error (device sda1): ext4_journal_check_start:61

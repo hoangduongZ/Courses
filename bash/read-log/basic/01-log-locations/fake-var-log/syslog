@@ -1,0 +1,6 @@
+May  6 08:01:01 webserver systemd[1]: Started Session 42 of user ubuntu.
+May  6 08:05:32 webserver kernel: [123456.789] eth0: renamed from vethABC
+May  6 08:10:00 webserver CRON[2345]: (root) CMD (/usr/bin/backup.sh)
+May  6 09:00:01 webserver systemd[1]: logrotate.service: Succeeded.
+May  6 09:15:44 webserver dhclient[887]: DHCPACK from 10.0.0.1
+May  6 10:22:11 webserver kernel: [234567.123] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro

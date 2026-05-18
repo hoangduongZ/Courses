@@ -1,0 +1,9 @@
+May  6 08:00:01 webserver sshd[1234]: Accepted publickey for ubuntu from 192.168.1.10 port 54321 ssh2
+May  6 08:00:01 webserver sshd[1234]: pam_unix(sshd:session): session opened for user ubuntu
+May  6 08:30:15 webserver sshd[2001]: Failed password for root from 45.33.32.156 port 4520 ssh2
+May  6 08:30:16 webserver sshd[2001]: Failed password for root from 45.33.32.156 port 4521 ssh2
+May  6 08:30:17 webserver sshd[2001]: Failed password for root from 45.33.32.156 port 4522 ssh2
+May  6 08:30:18 webserver sshd[2001]: Failed password for admin from 45.33.32.156 port 4523 ssh2
+May  6 08:30:19 webserver sshd[2001]: Failed password for admin from 45.33.32.156 port 4524 ssh2
+May  6 08:31:00 webserver sshd[2001]: error: maximum authentication attempts exceeded for root
+May  6 09:00:00 webserver sudo: ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/systemctl restart nginx

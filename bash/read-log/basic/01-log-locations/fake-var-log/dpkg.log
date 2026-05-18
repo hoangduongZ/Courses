@@ -1,0 +1,4 @@
+2026-05-06 07:30:01 startup packages configure
+2026-05-06 07:30:02 install nginx:amd64 <none> 1.18.0-0ubuntu1.4
+2026-05-06 07:30:05 status installed nginx:amd64 1.18.0-0ubuntu1.4
+2026-05-06 07:35:10 remove curl:amd64 7.68.0-1ubuntu2.21 <none>
