@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Các Thì Trong Tiếng Anh – 5W1H</title>
+    <dateCreated>2026-05-27</dateCreated>
+    <ownerName>HoangDV</ownerName>
+  </head>
+  <body>
+
+    <!-- ═══════════════════════════════════════════════════
+         ROOT
+    ═══════════════════════════════════════════════════ -->
+    <outline text="🕐 CÁC THÌ TRONG TIẾNG ANH (English Tenses)">
+
+      <!-- ══════════════════════════════════
+           1. HIỆN TẠI (Present)
+      ══════════════════════════════════ -->
+      <outline text="⚡ HIỆN TẠI (Present Tenses)">
+
+        <!-- 1.1 Present Simple -->
+        <outline text="1️⃣ Hiện Tại Đơn (Present Simple)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Diễn đạt sự thật hiển nhiên, thói quen, lịch trình"/>
+            <outline text="Công thức (+): S + V(s/es) / S + am/is/are + N/Adj"/>
+            <outline text="Công thức (-): S + do/does + not + V"/>
+            <outline text="Công thức (?): Do/Does + S + V?"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Tất cả người học từ cơ bản"/>
+            <outline text="Chủ ngữ: I/You/We/They → do | He/She/It → does"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Sự thật, quy luật khoa học (Water boils at 100°C)"/>
+            <outline text="Thói quen hằng ngày (I brush my teeth every morning)"/>
+            <outline text="Lịch trình cố định (The train leaves at 8am)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Văn nói hằng ngày, email công việc, văn bản khoa học"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Là thì nền tảng nhất, xuất hiện nhiều nhất trong giao tiếp"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: always, usually, often, sometimes, rarely, never"/>
+            <outline text="Signal words: every day/week/month, on Mondays, twice a week"/>
+            <outline text="Đuôi -s/-es với He/She/It"/>
+          </outline>
+        </outline>
+
+        <!-- 1.2 Present Continuous -->
+        <outline text="2️⃣ Hiện Tại Tiếp Diễn (Present Continuous)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Diễn đạt hành động đang xảy ra ngay lúc nói"/>
+            <outline text="Công thức (+): S + am/is/are + V-ing"/>
+            <outline text="Công thức (-): S + am/is/are + not + V-ing"/>
+            <outline text="Công thức (?): Am/Is/Are + S + V-ing?"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Người đang nói chuyện, mô tả tình huống hiện tại"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Hành động đang diễn ra lúc nói (She is reading now)"/>
+            <outline text="Kế hoạch tương lai gần đã sắp xếp (I am meeting him tomorrow)"/>
+            <outline text="Xu hướng tạm thời (He is working harder lately)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Mô tả ảnh/video, chat, kể chuyện trực tiếp"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Thể hiện tính năng động, sự việc chưa hoàn tất"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: now, right now, at the moment, currently, look!, listen!"/>
+            <outline text="Không dùng với stative verbs: know, love, hate, want, need, belong"/>
+          </outline>
+        </outline>
+
+        <!-- 1.3 Present Perfect -->
+        <outline text="3️⃣ Hiện Tại Hoàn Thành (Present Perfect)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Hành động đã xảy ra trong quá khứ nhưng liên quan đến hiện tại"/>
+            <outline text="Công thức (+): S + have/has + V3/ed"/>
+            <outline text="Công thức (-): S + have/has + not + V3/ed"/>
+            <outline text="Công thức (?): Have/Has + S + V3/ed?"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="I/You/We/They → have | He/She/It → has"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Kinh nghiệm sống (I have visited Japan)"/>
+            <outline text="Kết quả ảnh hưởng hiện tại (He has broken his leg)"/>
+            <outline text="Hành động vừa xong (She has just left)"/>
+            <outline text="Khoảng thời gian kéo dài đến nay (I have lived here for 5 years)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="CV/Resume, phỏng vấn xin việc, kể về trải nghiệm"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Nối quá khứ với hiện tại – rất phổ biến trong tiếng Anh"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: just, already, yet, never, ever, recently, lately"/>
+            <outline text="Signal words: for, since, so far, up to now, many times"/>
+          </outline>
+        </outline>
+
+        <!-- 1.4 Present Perfect Continuous -->
+        <outline text="4️⃣ Hiện Tại Hoàn Thành Tiếp Diễn (Present Perfect Continuous)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Hành động bắt đầu trong quá khứ, vẫn đang tiếp diễn hoặc vừa dừng"/>
+            <outline text="Công thức (+): S + have/has + been + V-ing"/>
+            <outline text="Công thức (-): S + have/has + not + been + V-ing"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Người muốn nhấn mạnh quá trình, thời gian kéo dài"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Nhấn mạnh tính liên tục (I have been working for 3 hours)"/>
+            <outline text="Giải thích nguyên nhân hiện tại (She is tired because she has been running)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Hội thoại giải thích lý do, email công việc"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Nhấn mạnh quá trình hơn kết quả – tinh tế hơn Present Perfect"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: for, since, all day/week, how long, lately, recently"/>
+          </outline>
+        </outline>
+
+      </outline>
+
+      <!-- ══════════════════════════════════
+           2. QUÁ KHỨ (Past)
+      ══════════════════════════════════ -->
+      <outline text="🕰️ QUÁ KHỨ (Past Tenses)">
+
+        <!-- 2.1 Past Simple -->
+        <outline text="5️⃣ Quá Khứ Đơn (Past Simple)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Hành động đã hoàn thành hoàn toàn trong quá khứ"/>
+            <outline text="Công thức (+): S + V2/ed"/>
+            <outline text="Công thức (-): S + did not + V"/>
+            <outline text="Công thức (?): Did + S + V?"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Mọi chủ ngữ dùng V2 (hoặc did cho câu phủ định/nghi vấn)"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Sự kiện xảy ra và kết thúc tại thời điểm xác định (I went to school yesterday)"/>
+            <outline text="Chuỗi sự kiện quá khứ (He woke up, ate breakfast, and left)"/>
+            <outline text="Thói quen trong quá khứ (She always wore glasses)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Kể chuyện, viết nhật ký, tường thuật sự kiện, tin tức"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Thì quá khứ phổ biến nhất trong hội thoại và viết lách"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: yesterday, last night/week/month/year, ago"/>
+            <outline text="Signal words: in 2020, once, when I was young"/>
+            <outline text="Động từ bất quy tắc: go→went, see→saw, buy→bought"/>
+          </outline>
+        </outline>
+
+        <!-- 2.2 Past Continuous -->
+        <outline text="6️⃣ Quá Khứ Tiếp Diễn (Past Continuous)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Hành động đang diễn ra tại một thời điểm trong quá khứ"/>
+            <outline text="Công thức (+): S + was/were + V-ing"/>
+            <outline text="Công thức (-): S + was/were + not + V-ing"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="I/He/She/It → was | You/We/They → were"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Hành động đang diễn ra thì bị gián đoạn (I was sleeping when he called)"/>
+            <outline text="Hai hành động song song (While she was cooking, he was cleaning)"/>
+            <outline text="Bối cảnh nền trong câu chuyện"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Kể chuyện, văn học, mô tả cảnh nền"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Tạo chiều sâu cho câu chuyện, diễn đạt tình huống bị cắt ngang"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: while, when, at that time, at 8pm last night, all morning"/>
+          </outline>
+        </outline>
+
+        <!-- 2.3 Past Perfect -->
+        <outline text="7️⃣ Quá Khứ Hoàn Thành (Past Perfect)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Hành động xảy ra TRƯỚC một hành động quá khứ khác"/>
+            <outline text="Công thức (+): S + had + V3/ed"/>
+            <outline text="Công thức (-): S + had not + V3/ed"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Mọi chủ ngữ đều dùng 'had'"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Hành động xảy ra trước trong quá khứ (She had left before I arrived)"/>
+            <outline text="Điều kiện loại 3 (If I had known, I would have helped)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Văn học, kể chuyện phức tạp, câu điều kiện loại 3"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Xác định thứ tự thời gian – tránh mơ hồ trong câu chuyện"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: before, after, by the time, already, just, never, when"/>
+          </outline>
+        </outline>
+
+        <!-- 2.4 Past Perfect Continuous -->
+        <outline text="8️⃣ Quá Khứ Hoàn Thành Tiếp Diễn (Past Perfect Continuous)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Hành động kéo dài liên tục trước một mốc thời gian quá khứ"/>
+            <outline text="Công thức (+): S + had + been + V-ing"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Người viết nâng cao, văn học, báo cáo chính thức"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Nhấn mạnh thời gian hành động kéo dài trước sự kiện khác"/>
+            <outline text="(She had been crying for an hour before he came home)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Văn học, văn viết học thuật"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Thể hiện sự kiên trì, thời gian dài trong quá khứ"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: for, since, before, when, all day, how long"/>
+          </outline>
+        </outline>
+
+      </outline>
+
+      <!-- ══════════════════════════════════
+           3. TƯƠNG LAI (Future)
+      ══════════════════════════════════ -->
+      <outline text="🚀 TƯƠNG LAI (Future Tenses)">
+
+        <!-- 3.1 Future Simple (will) -->
+        <outline text="9️⃣ Tương Lai Đơn (Future Simple – will)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Dự đoán, quyết định tức thì, lời hứa về tương lai"/>
+            <outline text="Công thức (+): S + will + V"/>
+            <outline text="Công thức (-): S + will not (won't) + V"/>
+            <outline text="Công thức (?): Will + S + V?"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Mọi chủ ngữ đều dùng 'will' (không chia)"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Quyết định ngay tại thời điểm nói (I'll take the blue one)"/>
+            <outline text="Lời hứa, đề nghị (I'll help you)"/>
+            <outline text="Dự đoán không chắc chắn (It will probably rain tomorrow)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Hội thoại hàng ngày, email công việc, văn bản trang trọng"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Dùng 'will' vs 'be going to' là lỗi phổ biến nhất của người học"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: tomorrow, next week/month/year, soon, in the future"/>
+            <outline text="Signal words: I think, I believe, I'm sure, probably, perhaps"/>
+          </outline>
+        </outline>
+
+        <!-- 3.2 Be going to -->
+        <outline text="🔟 Tương Lai Gần (Be Going To)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Kế hoạch đã định trước hoặc dự đoán có bằng chứng rõ ràng"/>
+            <outline text="Công thức (+): S + am/is/are + going to + V"/>
+            <outline text="Công thức (-): S + am/is/are + not + going to + V"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Người có kế hoạch cụ thể, có bằng chứng hiện tại"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Kế hoạch đã quyết định trước (I am going to study medicine)"/>
+            <outline text="Dự đoán dựa vào bằng chứng (Look at those clouds – it's going to rain)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Thông báo kế hoạch, dự báo thời tiết, hội thoại thường ngày"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Phân biệt với 'will': going to = đã có ý định; will = quyết định tức thì"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: tonight, this weekend, next year, soon"/>
+            <outline text="Dấu hiệu: có bằng chứng rõ ràng trước mắt"/>
+          </outline>
+        </outline>
+
+        <!-- 3.3 Future Continuous -->
+        <outline text="1️⃣1️⃣ Tương Lai Tiếp Diễn (Future Continuous)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Hành động sẽ đang diễn ra tại một thời điểm trong tương lai"/>
+            <outline text="Công thức (+): S + will + be + V-ing"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Người dùng tiếng Anh nâng cao, lịch sự trong yêu cầu"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Hành động đang xảy ra tại mốc tương lai (At 9pm, I will be sleeping)"/>
+            <outline text="Hỏi lịch ai đó một cách lịch sự (Will you be using the car tonight?)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Lịch trình công ty, dự đoán có thời gian cụ thể"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Lịch sự hơn khi hỏi kế hoạch người khác"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: at this time tomorrow, this time next week, when"/>
+          </outline>
+        </outline>
+
+        <!-- 3.4 Future Perfect -->
+        <outline text="1️⃣2️⃣ Tương Lai Hoàn Thành (Future Perfect)">
+          <outline text="❓ WHAT – Là gì?">
+            <outline text="Hành động sẽ hoàn thành TRƯỚC một thời điểm trong tương lai"/>
+            <outline text="Công thức (+): S + will + have + V3/ed"/>
+          </outline>
+          <outline text="🙋 WHO – Dùng cho ai?">
+            <outline text="Người viết nâng cao, lập kế hoạch chi tiết"/>
+          </outline>
+          <outline text="📅 WHEN – Khi nào dùng?">
+            <outline text="Deadline rõ ràng trong tương lai (I will have finished by 5pm)"/>
+            <outline text="Dự đoán hoàn thành (She will have graduated by then)"/>
+          </outline>
+          <outline text="📍 WHERE – Ngữ cảnh nào?">
+            <outline text="Email báo cáo, hợp đồng, kế hoạch dự án"/>
+          </outline>
+          <outline text="🔑 WHY – Tại sao quan trọng?">
+            <outline text="Thể hiện kỷ luật, cam kết hoàn thành đúng hạn"/>
+          </outline>
+          <outline text="⚙️ HOW – Cách nhận biết?">
+            <outline text="Signal words: by then, by the time, by next Monday, before"/>
+          </outline>
+        </outline>
+
+      </outline>
+
+      <!-- ══════════════════════════════════
+           4. SO SÁNH & BẪY THƯỜNG GẶP
+      ══════════════════════════════════ -->
+      <outline text="⚠️ SO SÁNH &amp; BẪY THƯỜNG GẶP (Common Mistakes)">
+
+        <outline text="🔀 Will vs Be Going To">
+          <outline text="Will: quyết định TỨC THÌ tại lúc nói (A: 'I'm thirsty' → B: 'I'll get you water')"/>
+          <outline text="Be going to: kế hoạch ĐÃ CÓ từ trước (I'm going to buy a new laptop next week)"/>
+          <outline text="Be going to: bằng chứng TRƯỚC MẮT (The sky is dark → It's going to rain)"/>
+        </outline>
+
+        <outline text="🔀 Present Perfect vs Past Simple">
+          <outline text="Present Perfect: KHÔNG xác định thời gian cụ thể (I have seen that movie)"/>
+          <outline text="Past Simple: CÓ xác định thời gian cụ thể (I saw that movie last Friday)"/>
+          <outline text="Lỗi sai phổ biến: ❌ I have gone there yesterday → ✅ I went there yesterday"/>
+        </outline>
+
+        <outline text="🔀 Present Continuous vs Present Simple">
+          <outline text="Present Simple: thói quen (She drinks coffee every morning)"/>
+          <outline text="Present Continuous: hành động tạm thời (She is drinking coffee right now)"/>
+        </outline>
+
+        <outline text="🔀 Stative Verbs – KHÔNG dùng -ing">
+          <outline text="Cảm xúc: love, hate, like, prefer, want, need, wish"/>
+          <outline text="Nhận thức: know, understand, believe, think (ý kiến), remember, forget"/>
+          <outline text="Giác quan: see, hear, smell, taste, feel"/>
+          <outline text="Sở hữu: have (sở hữu), belong, own, possess"/>
+          <outline text="❌ I am knowing the answer → ✅ I know the answer"/>
+        </outline>
+
+      </outline>
+
+      <!-- ══════════════════════════════════
+           5. SIGNAL WORDS TỔNG HỢP
+      ══════════════════════════════════ -->
+      <outline text="📌 SIGNAL WORDS TỔNG HỢP (Quick Reference)">
+
+        <outline text="⏰ QUÁ KHỨ">
+          <outline text="yesterday, last night/week/month/year"/>
+          <outline text="ago (3 days ago, long ago)"/>
+          <outline text="in + năm cụ thể (in 1999, in 2010)"/>
+          <outline text="when I was..., once, that day"/>
+        </outline>
+
+        <outline text="⚡ HIỆN TẠI">
+          <outline text="now, right now, at the moment, currently"/>
+          <outline text="always, usually, often, sometimes, rarely, never"/>
+          <outline text="every day/week, on Mondays, twice a week"/>
+          <outline text="just, already, yet, recently, lately, since, for"/>
+        </outline>
+
+        <outline text="🚀 TƯƠNG LAI">
+          <outline text="tomorrow, next week/month/year"/>
+          <outline text="soon, in the future, in 3 days"/>
+          <outline text="by + thời điểm (by Friday, by 2030)"/>
+          <outline text="I think, probably, perhaps, I'm sure"/>
+        </outline>
+
+      </outline>
+
+      <!-- ══════════════════════════════════
+           6. MẸO HỌC NHANH
+      ══════════════════════════════════ -->
+      <outline text="💡 MẸO HỌC NHANH (Learning Tips)">
+
+        <outline text="🧠 Quy tắc nhớ nhanh 3 cột">
+          <outline text="Cột 1 – SIMPLE: hoàn thành, kết thúc, sự thật"/>
+          <outline text="Cột 2 – CONTINUOUS: đang diễn ra, chưa xong, hành động"/>
+          <outline text="Cột 3 – PERFECT: kết quả/liên hệ với mốc thời gian khác"/>
+        </outline>
+
+        <outline text="🎯 Thứ tự học ưu tiên (80/20)">
+          <outline text="Ưu tiên 1: Present Simple + Past Simple (giao tiếp hàng ngày 60%)"/>
+          <outline text="Ưu tiên 2: Present Continuous + Present Perfect (giao tiếp 20%)"/>
+          <outline text="Ưu tiên 3: Will + Be Going To (tương lai thường dùng)"/>
+          <outline text="Nâng cao: Past Perfect + Future Perfect + các thì tiếp diễn hoàn thành"/>
+        </outline>
+
+        <outline text="📝 Cách luyện tập hiệu quả">
+          <outline text="Viết nhật ký hàng ngày → luyện Past Simple"/>
+          <outline text="Mô tả ảnh/video → luyện Present Continuous"/>
+          <outline text="Kể trải nghiệm sống → luyện Present Perfect"/>
+          <outline text="Chia sẻ kế hoạch tương lai → luyện will / be going to"/>
+          <outline text="Đọc truyện tiếng Anh → nhận biết ngữ cảnh các thì"/>
+        </outline>
+
+      </outline>
+
+    </outline>
+  </body>
+</opml>
