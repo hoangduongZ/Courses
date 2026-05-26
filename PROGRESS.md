@@ -1,11 +1,11 @@
 # Index course
 
 ## ✅ Đã xong
-- [x] Bài 1: Giới thiệu
+- [x] Eng
 - [x] Bài 2: Cơ bản
 
 ## 🔄 Đang học
-- [ ] Bài 3: Nâng cao
+- [ ] Eng
 
 ## 📌 Chưa đến
 - [ ] Bài 4: Thực hành
