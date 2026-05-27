@@ -1,192 +1,261 @@
-# 📚 BE + NGUYÊN THỂ (Be + To Infinitive)
+# 📚 ĐỘNG TỪ "BE" NGUYÊN THỂ — TO BE
 ### Dạy theo phương pháp 5W1H
 
 ---
 
-## 🗂️ Cấu trúc tổng quát
+## 🗂️ Hình dung tổng quát
 
 ```
-[Chủ ngữ] + [BE chia theo chủ ngữ] + TO + [Động từ nguyên thể]
+      TRƯỚC "TO BE"           │  TO BE  │       SAU "TO BE"
+──────────────────────────────┼─────────┼───────────────────────────
+  want / seem / need /        │         │  adjective (happy, rich)
+  appear / happen / used /    │  to be  │  noun (a doctor, a teacher)
+  modal (will, can, should)   │         │  past participle (done, seen)
+  It is + adj                 │         │  present participle (doing)
+  too/enough + adj            │         │  adverb / place (there, here)
 ```
 
-| Vị trí | Ví dụ |
+---
+
+## ❓ WHAT — "To be" nguyên thể là gì?
+
+**"To be"** là dạng nguyên thể của động từ **be**.
+Không chia theo chủ ngữ, không chia thì — đứng nguyên là **"to be"**.
+
+```
+❌ I want to am a doctor.   (SAI — "am" là chia theo chủ ngữ)
+✅ I want to be a doctor.   (ĐÚNG — nguyên thể)
+
+❌ She seems to is happy.
+✅ She seems to be happy.
+```
+
+---
+
+## ❓ WHY — Tại sao cần "to be"?
+
+"To be" xuất hiện khi:
+- Một động từ khác **đứng trước** cần nối với trạng thái/danh từ/tính từ
+- Cần diễn đạt **bị động** (passive infinitive)
+- Cần diễn đạt **trạng thái đang xảy ra** (continuous infinitive)
+
+---
+
+## ❓ WHAT comes BEFORE — Trước "to be" là gì?
+
+### 🔷 1. Động từ thông thường (verb + to be)
+
+| Động từ trước | Ví dụ | Nghĩa |
+|---|---|---|
+| **want** | I want **to be** rich. | Tôi muốn trở nên giàu có. |
+| **need** | You need **to be** careful. | Bạn cần phải cẩn thận. |
+| **seem** | She seems **to be** tired. | Cô ấy có vẻ mệt. |
+| **appear** | He appears **to be** honest. | Anh ấy có vẻ thật thà. |
+| **happen** | I happen **to be** free today. | Tình cờ hôm nay tôi rảnh. |
+| **tend** | He tends **to be** late. | Anh ấy hay bị trễ. |
+| **used** | She used **to be** shy. | Hồi trước cô ấy từng rụt rè. |
+| **pretend** | He pretended **to be** sick. | Anh ta giả vờ bị ốm. |
+| **claim** | She claims **to be** a doctor. | Cô ấy tự nhận là bác sĩ. |
+| **love / like / hate** | I love **to be** alone. | Tôi thích ở một mình. |
+
+---
+
+### 🔷 2. Modal verbs (will/can/should/must... + be)
+
+> ⚠️ Sau modal verbs, nguyên thể **KHÔNG có "to"** — chỉ dùng **"be"** trần
+
+| Modal + be | Ví dụ | Nghĩa |
+|---|---|---|
+| **will be** | She will **be** a great teacher. | Cô ấy sẽ là giáo viên giỏi. |
+| **can be** | This can **be** dangerous. | Điều này có thể nguy hiểm. |
+| **should be** | You should **be** honest. | Bạn nên thành thật. |
+| **must be** | He must **be** tired. | Anh ấy chắc mệt rồi. |
+| **may/might be** | She might **be** at home. | Cô ấy có thể đang ở nhà. |
+| **would be** | It would **be** nice. | Sẽ thật tuyệt. |
+
+```
+✅ She will be a doctor.      (modal → be, không có "to")
+✅ She wants to be a doctor.  (verb → to be, có "to")
+```
+
+---
+
+### 🔷 3. It is + adjective + to be
+
+```
+It is + [tính từ] + to be + ...
+```
+
+| Ví dụ | Nghĩa |
 |---|---|
-| **Trước BE** | Chủ ngữ (I, You, She, The meeting, We...) |
-| **BE** | am / is / are / was / were |
-| **Sau BE** | **to + verb** (to do, to leave, to meet...) |
+| It is great **to be** here. | Thật tuyệt khi được ở đây. |
+| It is important **to be** on time. | Điều quan trọng là phải đúng giờ. |
+| It is hard **to be** perfect. | Thật khó để hoàn hảo. |
+| It is good **to be** kind. | Tốt bụng là điều tốt. |
 
 ---
 
-## ❓ WHAT — Cấu trúc là gì?
-
-**"Be + to infinitive"** là cấu trúc dùng **BE (chia theo chủ ngữ)** + **TO + động từ nguyên thể**.
+### 🔷 4. Too / Enough + to be
 
 ```
-Trước BE         →  BE          →  Sau BE
-────────────────────────────────────────────
-Chủ ngữ         →  am/is/are   →  to + verb
-                   was/were
+too + [adj] + to be ...       →  quá... để có thể là...
+[adj] + enough + to be ...    →  đủ... để có thể là...
 ```
 
-### 🔍 Ví dụ minh họa trực quan
-
-```
-    ┌──────────┐   ┌──────┐   ┌─────────────────┐
-    │   The    │   │  is  │   │  to start at 9  │
-    │ meeting  │ + │      │ + │                 │
-    └──────────┘   └──────┘   └─────────────────┘
-     (Chủ ngữ)      (BE)        (to + nguyên thể)
-→ The meeting is to start at 9.
-→ Cuộc họp sẽ bắt đầu lúc 9 giờ.
-```
-
----
-
-## ❓ WHY — Tại sao dùng cấu trúc này?
-
-Cấu trúc này dùng để diễn đạt **3 ý chính**:
-
-| Mục đích | Giải thích | Cảm giác |
-|---|---|---|
-| **Kế hoạch chính thức** | Đã được lên lịch, sắp xếp từ trước | Trang trọng, chắc chắn |
-| **Mệnh lệnh / Chỉ thị** | Ai đó ra lệnh hoặc yêu cầu | Có thẩm quyền |
-| **Điều kiện → Kết quả** | Nếu muốn X thì phải làm Y | Có sự ràng buộc |
-
----
-
-## ❓ WHEN — Khi nào dùng?
-
-### 1. 📅 Kế hoạch đã được lên lịch (thường dùng is/are)
-
-```
-The president is to visit Vietnam next week.
-→ Tổng thống dự kiến thăm Việt Nam tuần tới.
-(Đã lên lịch chính thức — không phải kế hoạch cá nhân bình thường)
-
-The new law is to take effect in January.
-→ Luật mới sẽ có hiệu lực vào tháng Giêng.
-```
-
-### 2. 👮 Mệnh lệnh / Chỉ thị (thường dùng is/are/was/were)
-
-```
-You are to submit the report by Friday.
-→ Bạn phải nộp báo cáo trước thứ Sáu. (Sếp ra lệnh)
-
-All students are to remain in their seats.
-→ Tất cả học sinh phải ngồi tại chỗ.
-
-Soldiers were to obey orders without question.
-→ Lính phải tuân lệnh mà không được thắc mắc.
-```
-
-### 3. 🔗 Điều kiện — "Nếu muốn... thì phải..." (if + be to)
-
-```
-If you are to succeed, you must work hard.
-→ Nếu muốn thành công, bạn phải làm việc chăm chỉ.
-
-If she is to pass the exam, she needs to study more.
-→ Nếu muốn đậu kỳ thi, cô ấy cần học nhiều hơn.
-
-If we are to finish on time, we must start now.
-→ Nếu muốn hoàn thành đúng hạn, chúng ta phải bắt đầu ngay.
-```
-
----
-
-## ❓ WHERE — Cấu trúc này hay xuất hiện ở đâu?
-
-| Ngữ cảnh | Ví dụ |
+| Ví dụ | Nghĩa |
 |---|---|
-| 📰 **Tin tức / Báo chí** | The two leaders are to meet in Hanoi. |
-| 📋 **Thông báo chính thức** | All staff are to attend the meeting. |
-| 📖 **Văn bản hành chính** | The project is to be completed by December. |
-| 🗣️ **Giao tiếp trang trọng** | You are to follow the instructions carefully. |
-
-> ⚠️ **Lưu ý:** Cấu trúc này ít dùng trong hội thoại thông thường — nghe sẽ rất trang trọng!
+| He is too young **to be** a manager. | Anh ta còn quá trẻ để làm quản lý. |
+| She is old enough **to be** independent. | Cô ấy đủ tuổi để tự lập. |
 
 ---
 
-## ❓ WHO — Chủ ngữ thường là gì?
+## ❓ WHAT comes AFTER — Sau "to be" là gì?
 
-Chủ ngữ đứng **TRƯỚC BE** có thể là:
+### 🔶 1. Tính từ (Adjective)
 
 ```
-✅ Người cụ thể:
-   The president is to give a speech.
-   She is to be promoted next month.
+to be + adjective
+```
 
-✅ Tổ chức / nhóm người:
-   The committee is to announce the results.
-   All employees are to wear ID cards.
+| Ví dụ | Nghĩa |
+|---|---|
+| want **to be happy** | muốn được hạnh phúc |
+| seem **to be tired** | có vẻ mệt |
+| need **to be careful** | cần phải cẩn thận |
+| It's important **to be honest** | quan trọng là phải thành thật |
 
-✅ Sự vật / kế hoạch:
-   The new bridge is to open next year.
-   The meeting is to be held online.
+---
+
+### 🔶 2. Danh từ (Noun)
+
+```
+to be + (a/an) + noun
+```
+
+| Ví dụ | Nghĩa |
+|---|---|
+| want **to be a doctor** | muốn trở thành bác sĩ |
+| dream **to be a singer** | mơ ước trở thành ca sĩ |
+| claim **to be an expert** | tự nhận là chuyên gia |
+| used **to be a teacher** | từng là giáo viên |
+
+---
+
+### 🔶 3. Quá khứ phân từ (Past Participle) → Bị động
+
+```
+to be + past participle  →  bị động nguyên thể
+```
+
+| Ví dụ | Nghĩa |
+|---|---|
+| need **to be done** | cần phải được làm |
+| want **to be loved** | muốn được yêu thương |
+| have **to be finished** | phải được hoàn thành |
+| deserve **to be praised** | xứng đáng được khen ngợi |
+| waiting **to be served** | đang chờ được phục vụ |
+
+```
+The report needs to be submitted.
+→ Báo cáo cần phải được nộp. (bị động)
+
+She wants to be respected.
+→ Cô ấy muốn được tôn trọng. (bị động)
 ```
 
 ---
 
-## ❓ HOW — Cách chia BE theo từng chủ ngữ
+### 🔶 4. Hiện tại phân từ (Present Participle) → Đang xảy ra
 
-### Hiện tại (Present)
+```
+to be + V-ing  →  continuous infinitive (đang làm gì đó)
+```
 
-| Chủ ngữ | BE | Ví dụ hoàn chỉnh |
-|---|---|---|
-| I | **am** | I am to leave tomorrow. |
-| He / She / It | **is** | She is to arrive at 10. |
-| You / We / They | **are** | They are to sign the contract. |
+| Ví dụ | Nghĩa |
+|---|---|
+| seem **to be working** | có vẻ đang làm việc |
+| appear **to be sleeping** | có vẻ đang ngủ |
+| pretend **to be reading** | giả vờ đang đọc sách |
+| happen **to be waiting** | tình cờ đang đợi |
 
-### Quá khứ (Past)
+```
+She seems to be sleeping.
+→ Cô ấy có vẻ đang ngủ. (đang ngủ ngay lúc nói)
 
-| Chủ ngữ | BE | Ví dụ hoàn chỉnh |
-|---|---|---|
-| I / He / She / It | **was** | He was to call me but didn't. |
-| You / We / They | **were** | We were to meet at 3pm. |
-
-> 💡 **Quá khứ** thường dùng khi kế hoạch **đã được lên** nhưng **không chắc có xảy ra không**.
-> ```
-> He was to arrive at noon, but his flight was delayed.
-> → Anh ấy đáng lẽ đến lúc trưa, nhưng chuyến bay bị trễ.
-> ```
+She seems to be tired.
+→ Cô ấy có vẻ mệt. (trạng thái — dùng tính từ)
+```
 
 ---
 
-## 🔄 So sánh nhanh với cấu trúc tương tự
+### 🔶 5. Trạng từ / Nơi chốn (Adverb / Place)
 
-| Cấu trúc | Nghĩa | Ví dụ |
-|---|---|---|
-| **is to do** | Kế hoạch chính thức / lệnh | The CEO is to resign. |
-| **is going to do** | Kế hoạch cá nhân / dự đoán | I'm going to resign. |
-| **will do** | Quyết định tức thời / tương lai | I will resign. |
-| **must/have to do** | Bắt buộc phải làm | You must resign. |
+| Ví dụ | Nghĩa |
+|---|---|
+| want **to be there** | muốn ở đó |
+| need **to be here** | cần phải có mặt ở đây |
+| happen **to be nearby** | tình cờ ở gần đó |
+| want **to be together** | muốn ở bên nhau |
+
+---
+
+## ❓ WHO — Chủ ngữ là gì?
+
+"To be" dùng được với **mọi chủ ngữ** vì nó không chia theo người:
+
+```
+I want to be ...
+You seem to be ...
+He / She appears to be ...
+We / They need to be ...
+It tends to be ...
+```
+
+---
+
+## ❓ HOW — Bảng tổng hợp trước → to be → sau
+
+```
+┌─────────────────────────┬─────────┬──────────────────────────────┐
+│      TRƯỚC TO BE        │  TO BE  │        SAU TO BE             │
+├─────────────────────────┼─────────┼──────────────────────────────┤
+│ want / need / love      │         │ adjective → happy, careful   │
+│ seem / appear / tend    │  to be  │ noun → a doctor, a singer    │
+│ happen / used / pretend │         │ V3 (passive) → done, loved   │
+│ It is + adj             │         │ V-ing (continuous) → working │
+│ too + adj               │         │ adverb/place → there, here   │
+│ adj + enough            │         │                              │
+├─────────────────────────┼─────────┼──────────────────────────────┤
+│ will/can/should/must    │   be    │ (không có "to" sau modal)    │
+│ may/might/would         │ (trần)  │                              │
+└─────────────────────────┴─────────┴──────────────────────────────┘
+```
 
 ---
 
 ## 🧪 Bài tập nhanh
 
-Điền dạng đúng của BE + to vào chỗ trống:
+Chọn đáp án đúng:
 
-1. The new policy ___ (introduce) next month. → **is to be introduced**
-2. All passengers ___ (show) their tickets. → **are to show**
-3. If you ___ (win), you need to train harder. → **are to win**
-4. She ___ (meet) the director yesterday but he cancelled. → **was to meet**
-5. The children ___ (not leave) the school before 5pm. → **are not to leave**
+1. She wants ___ a nurse.
+   → **to be** ✅
+
+2. He seems ___ very busy right now.
+   → **to be** ✅
+
+3. The work needs ___ finished today.
+   → **to be** ✅ *(bị động)*
+
+4. You should ___ more careful.
+   → **be** ✅ *(sau modal, không có "to")*
+
+5. It is important ___ patient.
+   → **to be** ✅
 
 ---
 
-## 📝 Tóm tắt 1 bảng
+## 📝 Tóm tắt 1 dòng
 
-```
-TRƯỚC BE         BE              SAU BE
-─────────────────────────────────────────────────────
-Chủ ngữ    +  am/is/are    +   to + verb nguyên thể
-           +  was/were
-
-Dùng khi:
-  ✅ Kế hoạch chính thức đã lên lịch
-  ✅ Mệnh lệnh / chỉ thị từ cấp trên
-  ✅ Điều kiện: If + S + is/are to + V → phải làm gì
-  ✅ Hay gặp trong báo chí, văn bản hành chính
-```
+> **"To be"** đứng sau: *want/seem/need/appear/happen/used/pretend/It is+adj/too+adj/adj+enough*
+> **"Be" trần** đứng sau: *will / can / should / must / may / might / would*
+> Sau **"to be"**: tính từ | danh từ | V3 (bị động) | V-ing (đang xảy ra) | nơi chốn
