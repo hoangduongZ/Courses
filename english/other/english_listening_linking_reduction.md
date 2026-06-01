@@ -34,6 +34,7 @@ Quy tắc:
 
 ```
 consonant + vowel → nối
+phụ âm cuối + nguyên âm đầu → nối thành một cụm âm
 ```
 
 Ví dụ:
