@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Plural Nouns – Danh từ số nhiều</title>
+  </head>
+  <body>
+    <outline text="Plural Nouns – Danh từ số nhiều" note="Singular = 1 | Plural = 2 trở lên">
+
+      <outline text="QUY TẮC THÊM ĐUÔI">
+
+        <outline text="+ S (mặc định)" note="Hầu hết danh từ thông thường">
+          <outline text="book → books"/>
+          <outline text="pen → pens"/>
+          <outline text="car → cars"/>
+        </outline>
+
+        <outline text="+ ES (s, ss, sh, ch, x, z)" note="Âm khó đọc nếu chỉ thêm s">
+          <outline text="bus → buses (-s)"/>
+          <outline text="class → classes (-ss)"/>
+          <outline text="dish → dishes (-sh)"/>
+          <outline text="watch → watches (-ch)"/>
+          <outline text="box → boxes (-x)"/>
+          <outline text="quiz → quizzes (-z, nhân đôi z)"/>
+        </outline>
+
+        <outline text="Y → IES (phụ âm + y)" note="Trước y là phụ âm (b,c,d,f,g...): đổi y → ies">
+          <outline text="city → cities (t là phụ âm)"/>
+          <outline text="baby → babies"/>
+          <outline text="story → stories"/>
+          <outline text="family → families"/>
+        </outline>
+
+        <outline text="+ S (nguyên âm + y)" note="Trước y là a,e,i,o,u: chỉ thêm s">
+          <outline text="boy → boys (o là nguyên âm)"/>
+          <outline text="day → days"/>
+          <outline text="key → keys"/>
+          <outline text="toy → toys"/>
+        </outline>
+
+        <outline text="F/FE → VES (một số từ)" note="Không áp dụng cho tất cả! Học theo từng từ">
+          <outline text="wife → wives"/>
+          <outline text="knife → knives"/>
+          <outline text="leaf → leaves"/>
+          <outline text="shelf → shelves"/>
+          <outline text="NGOẠI LỆ giữ nguyên: roof→roofs, belief→beliefs, cliff→cliffs"/>
+        </outline>
+
+        <outline text="Kết thúc O" note="Không có quy tắc tuyệt đối">
+          <outline text="+ ES: tomato→tomatoes, potato→potatoes, hero→heroes"/>
+          <outline text="+ S: photo→photos, piano→pianos, video→videos, radio→radios" note="Từ hiện đại/công nghệ/nghệ thuật"/>
+        </outline>
+
+      </outline>
+
+      <outline text="CÁC DẠNG ĐẶC BIỆT">
+
+        <outline text="Bất quy tắc (Irregular)" note="Đổi dạng hoàn toàn – phải học thuộc">
+          <outline text="man → men"/>
+          <outline text="woman → women"/>
+          <outline text="child → children"/>
+          <outline text="person → people"/>
+          <outline text="tooth → teeth"/>
+          <outline text="foot → feet"/>
+          <outline text="mouse → mice"/>
+          <outline text="goose → geese"/>
+        </outline>
+
+        <outline text="Không đổi (Same form)" note="Số ít = số nhiều">
+          <outline text="fish → fish"/>
+          <outline text="sheep → sheep"/>
+          <outline text="deer → deer"/>
+          <outline text="species → species"/>
+          <outline text="❌ sheeps, deers là SAI"/>
+        </outline>
+
+        <outline text="Chỉ có dạng số nhiều (Always plural)" note="Luôn dùng động từ số nhiều">
+          <outline text="clothes (quần áo)"/>
+          <outline text="scissors (cái kéo)"/>
+          <outline text="glasses (kính)"/>
+          <outline text="trousers / pants / jeans / shorts (quần)"/>
+          <outline text="My glasses ARE on the table ✅"/>
+        </outline>
+
+        <outline text="Không đếm được (Uncountable)" note="Không bao giờ thêm S">
+          <outline text="water, rice, money"/>
+          <outline text="information → some information / a piece of information"/>
+          <outline text="advice → a piece of advice"/>
+          <outline text="furniture → a piece of furniture"/>
+          <outline text="equipment, homework, knowledge"/>
+          <outline text="❌ informations, advices, furnitures"/>
+        </outline>
+
+      </outline>
+
+      <outline text="PHÁT ÂM ĐUÔI S / ES">
+
+        <outline text="/s/ – âm vô thanh cuối" note="Âm cuối nhẹ, không rung cổ: /p/ /t/ /k/ /f/ /θ/">
+          <outline text="books /bʊks/"/>
+          <outline text="cups /kʌps/"/>
+          <outline text="hats /hæts/"/>
+        </outline>
+
+        <outline text="/z/ – âm hữu thanh hoặc nguyên âm" note="Âm cuối rung cổ hoặc nguyên âm">
+          <outline text="dogs /dɒɡz/"/>
+          <outline text="cars /kɑːrz/"/>
+          <outline text="boys /bɔɪz/"/>
+        </outline>
+
+        <outline text="/ɪz/ – âm giống s/sh/ch" note="Âm cuối: /s/ /z/ /ʃ/ /ʒ/ /tʃ/ /dʒ/">
+          <outline text="buses /ˈbʌsɪz/"/>
+          <outline text="dishes /ˈdɪʃɪz/"/>
+          <outline text="watches /ˈwɒtʃɪz/"/>
+          <outline text="boxes /ˈbɒksɪz/"/>
+        </outline>
+
+      </outline>
+
+      <outline text="DÙNG VỚI CÁC TỪ KHÁC">
+
+        <outline text="Mạo từ A / AN" note="Chỉ dùng với danh từ số ÍT đếm được">
+          <outline text="a book ✅ | a books ❌"/>
+          <outline text="Số nhiều: books / some books / many books / two books"/>
+        </outline>
+
+        <outline text="This / That / These / Those">
+          <outline text="this book (1) → these books (nhiều)"/>
+          <outline text="that car (1) → those cars (nhiều)"/>
+          <outline text="❌ This books are... → ✅ These books are..."/>
+        </outline>
+
+        <outline text="Động từ (Subject-Verb Agreement)">
+          <outline text="Singular: noun + IS / HAS / verb-s"/>
+          <outline text="Plural: noun + ARE / HAVE / verb nguyên mẫu"/>
+          <outline text="The student IS here → The students ARE here"/>
+        </outline>
+
+      </outline>
+
+      <outline text="LỖI THƯỜNG GẶP">
+        <outline text="Lỗi 1: Quên thêm S" note="❌ I have two book → ✅ I have two books"/>
+        <outline text="Lỗi 2: Dùng a/an với số nhiều" note="❌ She has a cars → ✅ She has cars"/>
+        <outline text="Lỗi 3: Thêm S vào uncountable" note="❌ informations → ✅ information"/>
+        <outline text="Lỗi 4: Sai động từ" note="❌ The students IS tired → ✅ The students ARE tired"/>
+        <outline text="Lỗi 5: Dùng this/that với số nhiều" note="❌ This books → ✅ These books"/>
+      </outline>
+
+      <outline text="CÔNG THỨC NHỚ NHANH">
+        <outline text="Số ít (1)">
+          <outline text="a/an + noun"/>
+          <outline text="this / that + noun"/>
+          <outline text="noun + IS"/>
+          <outline text="verb + S/ES"/>
+        </outline>
+        <outline text="Số nhiều (2+)">
+          <outline text="number / some / many + noun"/>
+          <outline text="these / those + noun"/>
+          <outline text="noun + ARE"/>
+          <outline text="verb nguyên mẫu"/>
+        </outline>
+      </outline>
+
+      <outline text="BẢNG TỔNG HỢP QUY TẮC">
+        <outline text="Thông thường → + S | book → books"/>
+        <outline text="s,ss,sh,ch,x,z → + ES | box → boxes"/>
+        <outline text="Phụ âm + Y → IES | city → cities"/>
+        <outline text="Nguyên âm + Y → + S | boy → boys"/>
+        <outline text="F/FE (1 số) → VES | knife → knives"/>
+        <outline text="O (1 số) → + ES | tomato → tomatoes"/>
+        <outline text="O (1 số) → + S | photo → photos"/>
+        <outline text="Bất quy tắc → đổi dạng | child → children"/>
+        <outline text="Không đổi → giữ nguyên | sheep → sheep"/>
+        <outline text="Không đếm được → không thêm S | information"/>
+      </outline>
+
+    </outline>
+  </body>
+</opml>
