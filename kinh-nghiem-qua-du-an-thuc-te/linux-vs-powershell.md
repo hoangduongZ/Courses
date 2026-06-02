@@ -40,6 +40,7 @@
 | Mục đích | Linux (Bash) | PowerShell |
 |---|---|---|
 | Tìm file theo tên | `find / -name "*.log"` | `Get-ChildItem -Recurse -Filter "*.log"` |
+| Tìm thư mục theo tên | `find / -type d -name "ten-thu-muc"` | `Get-ChildItem -Recurse -Directory -Filter "ten-thu-muc"` |
 | Tìm file theo size | `find . -size +100M` | `Get-ChildItem -Recurse \| Where-Object { $_.Length -gt 100MB }` |
 | Tìm file sửa gần đây | `find . -mtime -7` | `Get-ChildItem -Recurse \| Where-Object { $_.LastWriteTime -gt (Get-Date).AddDays(-7) }` |
 | Tìm & xóa | `find . -name "*.tmp" -delete` | `Get-ChildItem -Recurse -Filter "*.tmp" \| Remove-Item` |
