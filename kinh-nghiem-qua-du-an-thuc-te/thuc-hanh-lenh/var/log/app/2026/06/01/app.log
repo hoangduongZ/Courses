@@ -1,0 +1,34 @@
+2026-06-01 08:00:01 INFO  [AuthService] User admin@digidinos.com logged in
+2026-06-01 08:01:15 INFO  [OrderService] Order #10021 created by user_id=42
+2026-06-01 08:03:44 ERROR [PaymentService] Payment gateway timeout for order #10021
+2026-06-01 08:03:45 WARN  [PaymentService] Retrying payment for order #10021 (attempt 1/3)
+2026-06-01 08:03:50 ERROR [PaymentService] Retry failed for order #10021 (attempt 1/3)
+2026-06-01 08:04:00 ERROR [PaymentService] Retry failed for order #10021 (attempt 2/3)
+2026-06-01 08:04:10 INFO  [PaymentService] Payment succeeded for order #10021 (attempt 3/3)
+2026-06-01 08:10:00 INFO  [CronJob] Daily report generation started
+2026-06-01 08:10:35 INFO  [CronJob] Daily report generated: /opt/backups/daily/report_20260601.txt
+2026-06-01 08:15:22 ERROR [DatabaseService] Connection pool exhausted (pool_size=10)
+2026-06-01 08:15:23 ERROR [DatabaseService] Query timeout: SELECT * FROM orders WHERE status='pending'
+2026-06-01 08:15:30 INFO  [DatabaseService] Connection recovered
+2026-06-01 09:00:00 INFO  [AuthService] User hoang.dv@digidinos.com logged in
+2026-06-01 09:05:11 WARN  [UploadService] File size exceeds limit: invoice_large.pdf (120MB)
+2026-06-01 09:06:00 INFO  [UploadService] Upload completed: /home/deploy/uploads/2026/06/invoices/invoice_large.pdf
+2026-06-01 09:30:00 INFO  [OrderService] Order #10022 created by user_id=99
+2026-06-01 09:31:00 ERROR [EmailService] SMTP connection refused — mail.digidinos.com:587
+2026-06-01 09:31:01 ERROR [EmailService] Failed to send order confirmation to user_id=99
+2026-06-01 10:00:00 INFO  [AuthService] User dev@digidinos.com logged in
+2026-06-01 10:15:00 WARN  [CacheService] Cache hit rate dropped: 42% (threshold=60%)
+2026-06-01 10:16:00 INFO  [CacheService] Cache cleared and rebuilt
+2026-06-01 11:00:00 ERROR [AuthService] Failed login for unknown@hacker.com (IP: 203.0.113.99)
+2026-06-01 11:00:05 ERROR [AuthService] Failed login for admin@digidinos.com (IP: 203.0.113.99)
+2026-06-01 11:00:10 ERROR [AuthService] Failed login for root@digidinos.com (IP: 203.0.113.99)
+2026-06-01 11:00:15 WARN  [AuthService] Brute force from IP: 203.0.113.99 — blocked 1h
+2026-06-01 12:00:00 INFO  [CronJob] Cleanup /var/tmp: 34 files deleted
+2026-06-01 13:00:00 INFO  [OrderService] Order #10023 created by user_id=42
+2026-06-01 14:00:00 INFO  [ReportService] Monthly revenue report requested by admin@digidinos.com
+2026-06-01 14:05:00 ERROR [ReportService] Report failed: OutOfMemoryError (heap=512MB)
+2026-06-01 14:05:01 ERROR [ReportService] java.lang.OutOfMemoryError: Java heap space
+2026-06-01 16:00:00 WARN  [DiskMonitor] Disk usage 85% on /var — threshold=80%
+2026-06-01 17:00:00 INFO  [CronJob] Backup started → /opt/backups/daily/
+2026-06-01 17:02:30 INFO  [CronJob] Backup done: backup_20260601.tar.gz (2.3GB)
+2026-06-01 23:59:59 INFO  [System] Stats — requests: 14820, errors: 8, uptime: 100%

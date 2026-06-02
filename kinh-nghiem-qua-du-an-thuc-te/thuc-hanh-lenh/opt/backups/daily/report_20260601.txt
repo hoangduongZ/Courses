@@ -1,0 +1,8 @@
+Daily Report — 2026-06-01
+========================
+Total Orders  : 10
+Revenue       : 110,700,000 VND
+Errors        : 12
+Uptime        : 100%
+New Users     : 3
+Active Users  : 47

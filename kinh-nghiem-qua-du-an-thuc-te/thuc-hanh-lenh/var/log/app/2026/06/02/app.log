@@ -1,0 +1,6 @@
+2026-06-02 08:00:00 INFO  [System] Server started — version 2.4.1
+2026-06-02 08:00:05 INFO  [DatabaseService] Connected to postgres@db.digidinos.internal:5432
+2026-06-02 08:00:06 INFO  [CacheService] Connected to redis@cache.digidinos.internal:6379
+2026-06-02 08:01:00 INFO  [AuthService] User admin@digidinos.com logged in
+2026-06-02 09:00:00 WARN  [DiskMonitor] Disk usage 87% on /var — critical threshold approaching
+2026-06-02 09:01:00 ERROR [DiskMonitor] Cannot write log: /var/log/app — no space left on device
