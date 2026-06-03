@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <opml version="2.0">
   <head>
-    <title>TOEIC Part 1 - Listening: Mô tả Tranh</title>
+    <title>TOEIC Part 1 - Listening</title>
   </head>
   <body>
-    <outline text="TOEIC Part 1 - Listening: Mô tả Tranh">
+
+    <outline text="TOEIC-part-1">
 
       <outline text="1. Thông tin chung">
         <outline text="Hình thức: Xem tranh → Nghe 4 câu A/B/C/D → Chọn câu mô tả đúng nhất"/>
@@ -29,10 +30,6 @@
             <outline text="C. The woman is typing on the laptop"/>
             <outline text="D. The woman is writing in her notebook"/>
           </outline>
-          <outline text="Từ vựng cần chú ý">
-            <outline text="Động từ hành động: talking, using, typing, writing, sitting, standing..."/>
-            <outline text="Thì hiện tại tiếp diễn (is/are + V-ing)"/>
-          </outline>
         </outline>
 
         <outline text="Dạng 2: Tranh tả VẬT / CẢNH">
@@ -45,11 +42,6 @@
             <outline text="C. There are plastic umbrellas on the tables"/>
             <outline text="D. There are many flowers in the garden"/>
           </outline>
-          <outline text="Từ vựng cần chú ý">
-            <outline text="There is / There are..."/>
-            <outline text="Giới từ vị trí: on, in, at, next to, beside, behind..."/>
-            <outline text="Tính từ mô tả: empty, full, crowded, clean..."/>
-          </outline>
         </outline>
 
         <outline text="Dạng 3: Tranh tả CẢ NGƯỜI và VẬT / CẢNH">
@@ -57,10 +49,10 @@
           <outline text="Lưu ý: Đáp án đúng có thể là câu tả vật, không nhất thiết tả người"/>
           <outline text="Ví dụ (Test 5 - Q03)">
             <outline text="Tranh: Người đàn ông bên xe có tuyết"/>
-            <outline text="A. His car door is covered in snow ✓  → tả VẬT"/>
-            <outline text="B. He is driving a car in the snow  → tả người (sai)"/>
-            <outline text="C. He has already shoveled the snow off the roof  → tả người (sai)"/>
-            <outline text="D. He is playing with friends in the snow  → tả người (sai)"/>
+            <outline text="A ✓  His car door is covered in snow — tả VẬT"/>
+            <outline text="B ✗  He is driving a car in the snow"/>
+            <outline text="C ✗  He has already shoveled the snow off the roof"/>
+            <outline text="D ✗  He is playing with friends in the snow"/>
           </outline>
           <outline text="Chiến thuật: Không bỏ qua đáp án tả vật khi tranh có người"/>
         </outline>
@@ -131,5 +123,203 @@
       </outline>
 
     </outline>
+
+    <outline text="tranh-ta-nguoi">
+
+      <outline text="1. Đặc điểm nội dung — 4 dạng câu hỏi">
+        <outline text="① Nhân vật đang làm gì?">
+          <outline text="The woman is talking on the phone."/>
+        </outline>
+        <outline text="② Nhân vật đang ở đâu?">
+          <outline text="All of the students are outside the lecture theater."/>
+        </outline>
+        <outline text="③ Nhân vật đang làm gì (với ai) ở đâu?">
+          <outline text="He is playing with friends in the snow."/>
+        </outline>
+        <outline text="④ Ngoại hình của nhân vật?">
+          <outline text="The woman has her hair down."/>
+        </outline>
+      </outline>
+
+      <outline text="2. Ngữ pháp thường gặp">
+        <outline text="S + is/are + V-ing...  [phổ biến nhất]">
+          <outline text="The woman is talking on the phone."/>
+        </outline>
+        <outline text="S + is/are + P (địa điểm)">
+          <outline text="All of the students are outside the lecture theater."/>
+        </outline>
+        <outline text="S + V(s/es)...">
+          <outline text="The woman has her hair down."/>
+        </outline>
+        <outline text="There is/are + N...">
+          <outline text="There is a measuring tape around her neck."/>
+          <outline text="There are some performers on the stage."/>
+        </outline>
+      </outline>
+
+      <outline text="3. Dạng bài: TRANH 1 NGƯỜI">
+        <outline text="Nhận dạng: 1 người ở trung tâm, 4 câu cùng chủ ngữ He / She / The man / The woman"/>
+        <outline text="Bước 1 — Xác định: chỉ 1 người duy nhất trong tranh"/>
+        <outline text="Bước 2 — Quan sát: làm gì? ở đâu? ngoại hình?"/>
+        <outline text="Bước 3 — Nghe: bỏ qua chủ ngữ, tập trung vế sau">
+          <outline text="Loại: sai hành động / sai vật / sai địa điểm / sai ngoại hình"/>
+        </outline>
+        <outline text="Ví dụ 1 — New Economy T1-Q1  →  đáp án A">
+          <outline text="A ✓  talking on the phone — đúng hành động"/>
+          <outline text="B ✗  using her cellphone — cellphone không có trong tranh"/>
+          <outline text="C ✗  typing on the laptop — sai hành động (laptop có nhưng không gõ)"/>
+          <outline text="D ✗  writing in her notebook — sai hành động"/>
+        </outline>
+        <outline text="Ví dụ 2 — ETS 2022 T1-Q1  →  đáp án B">
+          <outline text="A ✗  parking a truck — sai hành động"/>
+          <outline text="B ✓  lifting some furniture — chairs = furniture (vật cụ thể → từ khái quát)"/>
+          <outline text="C ✗  starting an engine — sai hành động"/>
+          <outline text="D ✗  driving a car — sai hành động"/>
+        </outline>
+        <outline text="Lưu ý: vật cụ thể → từ khái quát">
+          <outline text="chairs / desk → furniture (đồ nội thất)"/>
+          <outline text="hammer, saw → tools (dụng cụ)"/>
+          <outline text="crane, forklift → heavy equipment (thiết bị hạng nặng)"/>
+          <outline text="guitar, violin → musical instrument (nhạc cụ)"/>
+          <outline text="pan, knife → kitchen utensil (dụng cụ bếp)"/>
+          <outline text="car, truck → vehicle (xe cộ)"/>
+        </outline>
+      </outline>
+
+      <outline text="4. Dạng bài: TRANH NHIỀU NGƯỜI">
+        <outline text="Nhận dạng: từ 2 người trở lên, đáp án tả chung hoặc riêng từng người"/>
+        <outline text="Bước 1 — Xác định: 2 người trở lên"/>
+        <outline text="Bước 2 — Quan sát ĐIỂM CHUNG và ĐIỂM RIÊNG">
+          <outline text="Điểm chung: cùng làm gì? ở đâu? (ưu tiên khi mặc đồng phục)"/>
+          <outline text="Điểm riêng: hành động / ngoại hình nam ≠ nữ"/>
+        </outline>
+        <outline text="Bước 3 — Nghe: PHẢI nghe chủ ngữ (They / Some of the people / One of the men...)">
+          <outline text="Loại: sai hành động / đồ vật không có / sai địa điểm / nhân vật không có"/>
+        </outline>
+        <outline text="Ví dụ 1 — ETS 2022 T7-Q3  →  đáp án C">
+          <outline text="A ✗  carrying a ladder — ladder không có trong tranh"/>
+          <outline text="B ✗  putting away some rope — chỉ 1 người làm, không phải cả 2"/>
+          <outline text="C ✓  installing a roof on a house — đúng hành động cả 2"/>
+          <outline text="D ✗  organizing boxes of materials — boxes không có trong tranh"/>
+        </outline>
+        <outline text="Ví dụ 2 — ETS 2022 T4-Q3  →  đáp án C">
+          <outline text="A ✗  setting down a microphone — đang holding, không phải đặt xuống"/>
+          <outline text="B ✗  constructing a platform — không liên quan tranh"/>
+          <outline text="C ✓  There are some performers on a stage — đúng"/>
+          <outline text="D ✗  unpacking their equipment — sai hành động"/>
+          <outline text="Lưu ý: nhân vật có thể gọi bằng danh từ khác: announcer, performer, musician..."/>
+        </outline>
+        <outline text="Kỹ thuật ĐẶT BÚT — tránh chọn nhầm">
+          <outline text="Đặt bút/chuột vào đáp án đầu tiên"/>
+          <outline text="Nghe sai → di chuyển sang đáp án tiếp"/>
+          <outline text="Nghe đúng hoặc phân vân → giữ nguyên"/>
+          <outline text="Chỉ di chuyển khi nghe được đáp án chắc chắn đúng hơn"/>
+          <outline text="Vị trí cuối cùng = đáp án chọn"/>
+        </outline>
+      </outline>
+
+      <outline text="5. Từ vựng theo nhóm hoạt động">
+
+        <outline text="5.1 Thị giác (Looking / Watching)">
+          <outline text="be looking at merchandise on display — ngắm nhìn hàng hóa trưng bày"/>
+          <outline text="be looking in a drawer — nhìn vào ngăn kéo"/>
+          <outline text="be looking out the window — nhìn ra ngoài cửa sổ"/>
+          <outline text="be examining some papers — kiểm tra tài liệu"/>
+          <outline text="be gazing at a painting hung on a wall — chăm chú nhìn tranh treo tường"/>
+          <outline text="be focusing on the computer screen — tập trung vào màn hình máy tính"/>
+          <outline text="be watching a musical performance — xem biểu diễn âm nhạc"/>
+          <outline text="Từ vựng: sign, board, merchandise, on display, notebook, painting, document, rack"/>
+        </outline>
+
+        <outline text="5.2 Hoạt động chân (Walking / Moving)">
+          <outline text="be sitting around the fountain — ngồi xung quanh đài phun nước"/>
+          <outline text="be standing behind the counter — đứng sau quầy hàng"/>
+          <outline text="be walking up a stairway — bước lên cầu thang"/>
+          <outline text="be strolling along the water&apos;s edge — đi dạo dọc bờ sông"/>
+          <outline text="be crossing the street — băng qua đường"/>
+          <outline text="be leaning on the railing — tựa vào lan can"/>
+          <outline text="be riding a bicycle by the water — đạp xe bên bờ sông"/>
+          <outline text="be boarding a bus — lên xe buýt"/>
+          <outline text="be getting into the vehicle — bước vào xe"/>
+          <outline text="be disembarking from the aircraft — xuống máy bay"/>
+          <outline text="Từ vựng: shade, path, motorcycle, luggage/baggage, stairs, lobby, rocking chair"/>
+        </outline>
+
+        <outline text="5.3 Hoạt động tay (Hands / Arms)">
+          <outline text="be holding up some merchandise — cầm hàng lên"/>
+          <outline text="be lifting a chair off the floor — nhấc ghế lên khỏi sàn"/>
+          <outline text="be reaching for a book — với lấy sách"/>
+          <outline text="be pushing a cart — đẩy xe đẩy hàng"/>
+          <outline text="be pointing at something on a paper — chỉ vào tờ báo"/>
+          <outline text="be placing a file folder — đặt tập tài liệu"/>
+          <outline text="be taking a book from the bookcase — lấy sách từ tủ"/>
+          <outline text="be throwing away some garbage — vứt rác"/>
+          <outline text="be carrying some plants — mang cây"/>
+          <outline text="Từ vựng: item, lid, suitcase, photocopier, baby stroller, package, device, rack"/>
+        </outline>
+
+        <outline text="5.4 Công việc văn phòng (Office Work)">
+          <outline text="be working at a desk — làm việc tại bàn"/>
+          <outline text="be handling some documents — xử lý tài liệu"/>
+          <outline text="be organizing files on a shelf — sắp xếp hồ sơ trên kệ"/>
+          <outline text="be operating a computer — sử dụng máy tính"/>
+          <outline text="be typing on a keyboard — đánh chữ trên bàn phím"/>
+          <outline text="be signing a paper — ký giấy tờ"/>
+          <outline text="be carrying a briefcase — xách cặp tài liệu"/>
+          <outline text="be having a discussion — thảo luận"/>
+          <outline text="Từ vựng: meeting, round table, overhead projector, filing, notepad, handout"/>
+        </outline>
+
+        <outline text="5.5 Công việc xây dựng (Construction)">
+          <outline text="be working at a construction site — làm việc tại công trường"/>
+          <outline text="be operating heavy machinery — vận hành thiết bị hạng nặng"/>
+          <outline text="be inspecting the motor of the car — kiểm tra động cơ ô tô"/>
+          <outline text="be laying bricks — đặt gạch"/>
+          <outline text="be painting a window frame — sơn khung cửa sổ"/>
+          <outline text="be using a shovel to dig a hole — dùng xẻng đào hố"/>
+          <outline text="be taking a measurement — đo lường"/>
+          <outline text="be climbing up the ladder — trèo lên thang"/>
+          <outline text="be transporting some items on a cart — chuyển đồ lên xe đẩy"/>
+          <outline text="Từ vựng: wheelbarrow, protective gear, safety helmet, tool belt, electrical wire"/>
+        </outline>
+
+        <outline text="5.6 Vườn / Ngoài trời (Garden)">
+          <outline text="be watering the plants — tưới cây"/>
+          <outline text="be trimming some branches — tỉa cành"/>
+          <outline text="be picking some flowers — hái hoa"/>
+          <outline text="be sweeping the floor — quét sàn"/>
+          <outline text="be mopping the floor — lau sàn"/>
+          <outline text="be raking leaves on the ground — cào lá"/>
+          <outline text="be cutting grass in a pasture — cắt cỏ trên đồng"/>
+          <outline text="Từ vựng: fence, porch, warehouse, pile, broom, floral arrangement, renovation"/>
+        </outline>
+
+        <outline text="5.7 Thức ăn / Nhà hàng (Food)">
+          <outline text="be cooking some food — nấu ăn"/>
+          <outline text="be chopping up some vegetables — thái rau"/>
+          <outline text="be wearing an apron — đeo tạp dề"/>
+          <outline text="be setting a table — dọn bàn"/>
+          <outline text="be shopping for groceries — mua hàng tạp hóa"/>
+          <outline text="be serving food to the customers — mang thức ăn cho khách"/>
+          <outline text="be pouring water into glass — rót nước vào ly"/>
+          <outline text="be packing some food into the plastic container — đóng gói thực phẩm"/>
+          <outline text="Từ vựng: pot, apron, cupboard, pitcher, tablecloth, faucet, utensil, bakeshop"/>
+        </outline>
+
+        <outline text="5.8 Giải trí ngoài trời (Leisure)">
+          <outline text="be attending a concert — tham dự hòa nhạc"/>
+          <outline text="be fishing from a boat — câu cá trên thuyền"/>
+          <outline text="be hiking in the forest — đi bộ đường dài trong rừng"/>
+          <outline text="be playing a game — chơi trò chơi"/>
+          <outline text="be kicking a ball into the air — đá bóng lên không trung"/>
+          <outline text="be packing a suitcase — xếp hành lý vào vali"/>
+          <outline text="be screening some luggage — kiểm tra hành lý"/>
+          <outline text="Từ vựng: performance, shore, amusement park, seashell, camping gear, paddle, backpack"/>
+        </outline>
+
+      </outline>
+
+    </outline>
+
   </body>
 </opml>
