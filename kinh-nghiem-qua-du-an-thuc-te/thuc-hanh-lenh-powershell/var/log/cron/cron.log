@@ -1,0 +1,8 @@
+2026-06-01 00:00:00 CRON (root) CMD (/srv/digidinos-app/scripts/cron/cleanup.sh)
+2026-06-01 00:00:01 CRON cleanup.sh: Deleted 12 files from /var/tmp/sessions
+2026-06-01 08:10:00 CRON (root) CMD (/srv/digidinos-app/scripts/cron/daily_report.sh)
+2026-06-01 08:10:35 CRON daily_report.sh: Report saved to /opt/backups/daily/report_20260601.txt
+2026-06-01 17:00:00 CRON (root) CMD (/srv/digidinos-app/scripts/cron/backup.sh)
+2026-06-01 17:02:30 CRON backup.sh: Backup complete → /opt/backups/daily/backup_20260601.tar.gz
+2026-06-02 00:00:00 CRON (root) CMD (/srv/digidinos-app/scripts/cron/cleanup.sh)
+2026-06-02 00:00:02 CRON cleanup.sh: Deleted 8 files from /var/tmp/sessions
