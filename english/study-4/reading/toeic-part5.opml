@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>TOEIC Part 5 - Reading: Điền từ vào chỗ trống</title>
+  </head>
+  <body>
+
+    <outline text="TOEIC-part-5">
+
+      <outline text="1. Thông tin chung">
+        <outline text="Hình thức: Trắc nghiệm — chọn 1 trong 4 đáp án A/B/C/D điền vào chỗ trống trong câu"/>
+        <outline text="Số lượng: 30 câu (câu 101–130)"/>
+        <outline text="Kỹ năng: Ngữ pháp và từ vựng tiếng Anh"/>
+        <outline text="Tầm quan trọng">
+          <outline text="Part 5 + Part 6 = 46/100 câu Reading"/>
+          <outline text="Dễ ăn điểm hơn Part 7 — nên tối đa hóa điểm ở đây"/>
+          <outline text="Mục tiêu 600 TOEIC cần đạt ~300/495 Reading → Part 5 &amp; 6 là chìa khóa"/>
+        </outline>
+      </outline>
+
+      <outline text="2. Các dạng câu hỏi">
+
+        <outline text="Dạng 1: Câu hỏi TỪ LOẠI (Word Form)">
+          <outline text="Nhận dạng: 4 đáp án là các dạng từ loại khác nhau của CÙNG 1 gốc từ"/>
+          <outline text="Nhiệm vụ: Xác định vị trí trống cần từ loại gì (danh từ / động từ / tính từ / trạng từ)"/>
+          <outline text="Ví dụ">
+            <outline text="Q: Mougey Fine Gifts is known for its large range of _____ goods."/>
+            <outline text="A ✓  regional — tính từ (đứng trước danh từ goods)"/>
+            <outline text="B ✗  regionally — trạng từ"/>
+            <outline text="C ✗  region — danh từ số ít"/>
+            <outline text="D ✗  regions — danh từ số nhiều"/>
+          </outline>
+          <outline text="Quy tắc nhận diện vị trí">
+            <outline text="Trước danh từ → tính từ"/>
+            <outline text="Sau động từ to be / linking verb → tính từ hoặc danh từ"/>
+            <outline text="Sau động từ thường / trước tính từ → trạng từ"/>
+            <outline text="Sau mạo từ (a/an/the) hoặc tính từ sở hữu → danh từ"/>
+            <outline text="Vị trí chủ ngữ / tân ngữ → danh từ"/>
+          </outline>
+        </outline>
+
+        <outline text="Dạng 2: Câu hỏi TỪ VỰNG (Vocabulary)">
+          <outline text="Nhận dạng: 4 đáp án CÙNG từ loại, khác nghĩa"/>
+          <outline text="Nhiệm vụ: Chọn từ có nghĩa phù hợp nhất với ngữ cảnh câu"/>
+          <outline text="Ví dụ">
+            <outline text="Q: Income levels are rising in the _____ and surrounding areas."/>
+            <outline text="A ✗  family — gia đình"/>
+            <outline text="B ✗  world — thế giới"/>
+            <outline text="C ✗  company — công ty"/>
+            <outline text="D ✓  city — thành phố (phù hợp nghĩa với &quot;surrounding areas&quot;)"/>
+          </outline>
+          <outline text="Chiến thuật">
+            <outline text="Đọc toàn câu để nắm ngữ cảnh trước khi chọn"/>
+            <outline text="Chú ý collocation (cụm từ đi kèm cố định)"/>
+            <outline text="Loại trừ các từ không phù hợp ngữ cảnh"/>
+          </outline>
+        </outline>
+
+        <outline text="Dạng 3: Câu hỏi NGỮ PHÁP (Grammar)">
+          <outline text="Nhận dạng: 4 đáp án là các dạng / thì / cấu trúc ngữ pháp khác nhau"/>
+          <outline text="Ví dụ">
+            <outline text="Q: Mr. Kim would like _____ a meeting about the Jasper account as soon as possible."/>
+            <outline text="A ✓  to arrange — to V (sau would like)"/>
+            <outline text="B ✗  arranging — V-ing"/>
+            <outline text="C ✗  having arranged — perfect participle"/>
+            <outline text="D ✗  arrangement — danh từ"/>
+          </outline>
+          <outline text="Các điểm ngữ pháp thường gặp">
+            <outline text="Dạng động từ: V-inf / to V / V-ing / V-ed"/>
+            <outline text="Thì động từ: hiện tại / quá khứ / tương lai / hoàn thành"/>
+            <outline text="Chủ động vs bị động (active vs passive)"/>
+            <outline text="Đại từ: chủ ngữ / tân ngữ / sở hữu / phản thân"/>
+            <outline text="Giới từ: in / on / at / for / to / with / by..."/>
+            <outline text="Liên từ: although / however / therefore / because..."/>
+            <outline text="Cấu trúc đặc biệt: so...that / such...that / not only...but also..."/>
+          </outline>
+        </outline>
+
+      </outline>
+
+      <outline text="3. Cách làm bài (4 bước)">
+        <outline text="Bước 1: Đọc câu hỏi, xác định dạng bài">
+          <outline text="4 đáp án cùng gốc từ? → Dạng từ loại"/>
+          <outline text="4 đáp án cùng từ loại, khác nghĩa? → Dạng từ vựng"/>
+          <outline text="4 đáp án là dạng ngữ pháp khác nhau? → Dạng ngữ pháp"/>
+        </outline>
+        <outline text="Bước 2: Phân tích vị trí chỗ trống trong câu">
+          <outline text="Xác định vị trí: chủ ngữ / vị ngữ / tân ngữ / bổ ngữ / trạng ngữ"/>
+          <outline text="Xem từ đứng trước và sau chỗ trống"/>
+        </outline>
+        <outline text="Bước 3: Loại trừ đáp án sai"/>
+        <outline text="Bước 4: Chọn đáp án — không dành quá 30 giây cho 1 câu Part 5"/>
+      </outline>
+
+      <outline text="4. Lưu ý ôn tập">
+        <outline text="Từ vựng chiếm ~1/3 câu hỏi — học từ vựng là ưu tiên hàng đầu"/>
+        <outline text="Ngữ pháp và từ loại lặp lại nhiều — luyện đủ nhiều sẽ quen pattern"/>
+        <outline text="Part 5 là phần dễ ăn điểm nhất trong Reading — không bỏ qua"/>
+        <outline text="Kết hợp học từ vựng Part 5 với toàn bộ kỳ thi và thực tế công việc"/>
+      </outline>
+
+    </outline>
+
+  </body>
+</opml>
