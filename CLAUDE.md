@@ -1,0 +1,1 @@
+Nếu tôi yêu cầu tạo md để import vào xmind hãy tham khảo prompt tại: /Users/macbook/Documents/Course/english/study-4/xmind-md-prompt.md
