@@ -3,6 +3,7 @@
 > Mỗi task: lệnh Linux → lệnh PowerShell → Why (tại sao dùng flag/syntax đó) → How (cơ chế hoạt động).
 > Root làm việc: `thuc-hanh-lenh/` (coi như `/` trên server).
 
+progress: xong sprint 1
 ---
 
 ## 🔴 Sprint 1 — Search & Find
